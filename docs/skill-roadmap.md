@@ -6,20 +6,15 @@
 |-------|-------|-------------|
 | `affiliate-program-search` | S1: Research | Research and score programs from list.affitor.com |
 | `viral-post-writer` | S2: Content | Write viral social media posts for affiliate products |
+| `affiliate-blog-builder` | S3: Blog | SEO reviews, comparisons, listicles, how-to guides |
+| `landing-page-creator` | S4: Landing | Single/comparison HTML landing pages with AIDA conversion framework |
+| `bio-link-deployer` | S5: Distribution | Linktree-style bio link hub page, 3 themes, self-contained HTML |
 
 ## In Progress
 
 | Skill | Stage | Target | Owner |
 |-------|-------|--------|-------|
 | API search filters | Infrastructure | Phase 2b | Affitor team |
-
-## Planned (Affitor team)
-
-| Skill | Stage | Priority | Notes |
-|-------|-------|----------|-------|
-| `affiliate-blog-builder` | S3: Blog | P1 | SEO reviews, comparisons, listicles |
-| `landing-page-creator` | S4: Landing | P1 | HTML/CSS landing pages |
-| `bio-link-deployer` | S5: Distribution | P2 | Single HTML bio link page |
 
 ## Open for Community Contribution
 
