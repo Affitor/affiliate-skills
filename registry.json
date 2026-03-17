@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-03-17T22:42:10.116Z",
+  "generated_at": "2026-03-17T23:42:15.529Z",
   "stages": {
     "research": {
       "label": "Research & Discovery",
@@ -44,6 +44,19 @@
     }
   },
   "skills": [
+    {
+      "name": "affiliate-program-lister",
+      "slug": "affiliate-program-lister",
+      "stage": "research",
+      "version": "1.0.0",
+      "description": "> Research an affiliate program and create a verified listing for list.affitor.com. Use this skill when the user asks anything about listing a program, adding an affiliate program to the directory, submitting a program to list, creating a listing, documenting an affiliate program, sharing an affiliate program, writing a program profile, posting a program to list.affitor.com, or contributing a new program. Also trigger for: \"list a program\", \"add affiliate program\", \"submit program to list\", \"create listing for X\", \"document affiliate program\", \"share affiliate program\", \"write a listing\", \"post to list.affitor.com\", \"add X to the directory\", \"register an affiliate program\", \"publish affiliate program\", \"new program listing\", \"profile this affiliate program\", \"catalog this program\".",
+      "path": "skills/research/affiliate-program-lister",
+      "agent_compatible": true,
+      "tools": [
+        "web_search"
+      ],
+      "author": "Affitor"
+    },
     {
       "name": "affiliate-program-search",
       "slug": "affiliate-program-search",
