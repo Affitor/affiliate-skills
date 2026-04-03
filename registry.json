@@ -125,6 +125,33 @@
       "author": "Affitor"
     },
     {
+      "name": "trending-content-scout",
+      "slug": "trending-content-scout",
+      "stage": "research",
+      "version": "1.0.0",
+      "description": "> Scan YouTube/TikTok/X/Reddit for top-performing content by engagement before you create anything. Find winning formats, hooks, and content gaps. Sort by views, likes, shares, or engagement score. Works with or without API — web_search fallback included. Triggers on: 'what content is working', 'show me top performing content', 'trending content', 'find viral content', 'content research', 'what gets views', 'engagement analysis', 'scout the competition', 'social listening', 'find winning formats', 'content intelligence'.",
+      "path": "skills/research/trending-content-scout",
+      "agent_compatible": true,
+      "tools": [
+        "web_search",
+        "web_fetch"
+      ],
+      "author": "Affitor"
+    },
+    {
+      "name": "content-angle-ranker",
+      "slug": "content-angle-ranker",
+      "stage": "research",
+      "version": "1.0.0",
+      "description": "> Rank content angles by engagement data, competition level, and platform fit. Data-driven angle selection instead of guesswork. Generates 8-12 angle candidates and scores each on 4 dimensions. Triggers on: 'what angle should I use', 'rank content ideas', 'best angle for', 'which content idea will perform best', 'help me pick an angle', 'content angle', 'data-driven content planning', 'angle ranker', 'content scoring', 'prioritize my content angles'.",
+      "path": "skills/research/content-angle-ranker",
+      "agent_compatible": true,
+      "tools": [
+        "web_search"
+      ],
+      "author": "Affitor"
+    },
+    {
       "name": "purple-cow-audit",
       "slug": "purple-cow-audit",
       "stage": "research",
@@ -135,6 +162,45 @@
       "tools": [
         "web_search"
       ],
+      "author": "Affitor"
+    },
+    {
+      "name": "traffic-analyzer",
+      "slug": "traffic-analyzer",
+      "stage": "research",
+      "version": "1.0.0",
+      "description": "> Analyze website traffic, global rank, engagement metrics, and traffic sources for any domain. Evaluate affiliate program websites, compare competitor traffic, assess advertiser strength. Triggers on: 'analyze traffic', 'how much traffic', 'compare traffic', 'website analytics', 'traffic sources', 'SimilarWeb analysis', 'website rank', 'is this advertiser legit', 'domain authority check'.",
+      "path": "skills/research/traffic-analyzer",
+      "agent_compatible": true,
+      "tools": [
+        "web_search",
+        "web_fetch"
+      ],
+      "author": "Affitor"
+    },
+    {
+      "name": "content-research-brief",
+      "slug": "content-research-brief",
+      "stage": "content",
+      "version": "1.0.0",
+      "description": "> Research trending topics, collect source articles, auto-tag, and generate structured research briefs for content creation. Write from real sources, not thin air. Triggers on: 'research topic', 'find sources', 'content brief', 'what is the latest on', 'collect articles', 'trending news about', 'gather sources', 'brief me on', 'research before writing'.",
+      "path": "skills/content/content-research-brief",
+      "agent_compatible": true,
+      "tools": [
+        "web_search",
+        "web_fetch"
+      ],
+      "author": "Affitor"
+    },
+    {
+      "name": "infographic-generator",
+      "slug": "infographic-generator",
+      "stage": "content",
+      "version": "1.0.0",
+      "description": "> Generate branded infographic specifications from any content or data. Outputs layout, copy, data visualization, color scheme — ready for HTML/CSS, Satori, or Canva. Triggers on: 'create infographic', 'make a visual', 'stat graphic', 'comparison chart', 'branded image', 'social media graphic', 'data visualization', 'image for my post', 'LinkedIn carousel'.",
+      "path": "skills/content/infographic-generator",
+      "agent_compatible": true,
+      "tools": [],
       "author": "Affitor"
     },
     {

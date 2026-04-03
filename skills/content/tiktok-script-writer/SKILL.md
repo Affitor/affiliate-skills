@@ -71,6 +71,31 @@ If product details are sparse, use `web_search "[product name] what it does tuto
 Concrete specifics > vague claims. "Creates a 2-minute video in 30 seconds" beats
 "saves time on video creation".
 
+### Step 1.5: Analyze Top Performing TikToks (data-driven)
+
+Before selecting hook style, see what's actually winning in this niche on TikTok:
+
+**If `trending-content-scout` ran earlier:**
+- Use TikTok-specific data from `top_content`
+- Extract: winning hooks, optimal duration, top creators' styles
+- Use `engagement_benchmark` to set a target engagement score
+- If `content-angle-ranker` provided a `recommended_angle` → use it
+
+**If no scout data (quick mode):**
+- `web_search "[product name] tiktok"` → find top TikTok videos
+- `web_search "best [niche] tiktok viral"` → find format patterns
+- `web_search "[product name] tiktok review"` → see existing content
+- Note view counts, styles, and durations visible in search results
+
+**Apply findings to script:**
+- If demo_first hooks have 2x engagement in this niche → default to demo_first
+- If 30-45s videos outperform 60s → adjust duration target
+- If a specific creator style dominates → note as reference (adapt, don't copy)
+- If `engagement_benchmark.median_views` is known → aim to beat it with better hook + format
+
+This step takes <2 minutes but can 3x the script's potential by building on
+proven patterns instead of guessing.
+
 ### Step 2: Select the Hook Style
 
 Short-form video is won or lost in seconds 1-3. Pick the hook based on the product's
@@ -302,6 +327,8 @@ After 5 videos, check: which hook style got the highest completion rate? Which v
 - `content-pillar-atomizer` (S2) — successful scripts become content to atomize further
 
 ### Fed By
+- `trending-content-scout` (S1) — top TikTok content + engagement data + winning hooks
+- `content-angle-ranker` (S1) — recommended angle with format, hook, and parameters
 - `affiliate-program-search` (S1) — `recommended_program` product data
 - `purple-cow-audit` (S1) — remarkable angles for script hooks
 - `content-pillar-atomizer` (S2) — atomized TikTok scripts from pillar content

@@ -79,6 +79,30 @@ Even if product info is provided, do a quick `web_search` to find:
 
 Extract 2-3 **specific details** — exact numbers, real features, concrete use cases. Generic "this tool is amazing" posts don't go viral.
 
+### Step 2.5: Research Winning Formats (data-driven)
+
+Before picking a framework, check what's already working for this topic:
+
+**If `trending-content-scout` or `content-angle-ranker` ran earlier:**
+- Use `pattern_analysis.winning_formats` → pick the format with highest engagement
+- Use `pattern_analysis.winning_hooks` → pick the hook style backed by data
+- Use `engagement_benchmark` → know what "good" looks like for this keyword
+- If `content-angle-ranker` provided a `recommended_angle` → use it as the angle
+
+**If no scout data available (quick mode):**
+- `web_search "[product name] review site:linkedin.com"` → check top LinkedIn posts
+- `web_search "[product name] site:x.com"` → check top tweets
+- Look for: post length, format (story vs list vs question), engagement signals visible in snippets
+- Estimate which format works best on target platform
+
+**Apply findings to framework selection:**
+- Data > intuition. If comparisons get 2x engagement vs reviews in this niche, write a comparison
+- If bold_claim hooks dominate top content → use a bold claim hook, even if you'd normally use a question
+- If the `engagement_benchmark.top_10_percent_threshold` is known → set that as the target to beat
+
+This step takes <2 minutes but significantly increases the odds of creating content that
+performs above the benchmark rather than below it.
+
 ### Step 3: Pick the Viral Framework
 
 Select from `references/viral-frameworks.md` based on product + platform + angle.
@@ -279,6 +303,8 @@ After 24 hours: how many affiliate link clicks? After 7 days: any commissions at
 - `ab-test-generator` (S6) — post variants for A/B testing
 
 ### Fed By
+- `trending-content-scout` (S1) — winning formats, hooks, engagement benchmarks
+- `content-angle-ranker` (S1) — recommended angle with format, hook, and parameters
 - `affiliate-program-search` (S1) — `recommended_program` product data
 - `niche-opportunity-finder` (S1) — niche analysis and audience angles
 - `purple-cow-audit` (S1) — `remarkability_score` and what makes the product shareable

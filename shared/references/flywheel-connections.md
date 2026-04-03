@@ -1,6 +1,6 @@
 # Flywheel Connections — Master Map
 
-The Affitor Flywheel is a closed-loop system where analytics feedback flows back to research, creating continuous improvement across all 44 skills.
+The Affitor Flywheel is a closed-loop system where analytics feedback flows back to research, creating continuous improvement across all 50 skills.
 
 ```
   S1 RESEARCH ──▶ S2 CONTENT ──▶ S3 BLOG & SEO ──▶ S4 OFFERS & LANDING
@@ -30,6 +30,41 @@ The Affitor Flywheel is a closed-loop system where analytics feedback flows back
 | monopoly-niche-finder | content-pillar-atomizer | `monopoly_niche` (unique positioning) |
 | purple-cow-audit | viral-post-writer | `remarkability_score` (what makes it shareable) |
 | competitor-spy | viral-post-writer | `competitor_gaps` (content opportunities) |
+| trending-content-scout | viral-post-writer | `pattern_analysis` (winning formats, hooks, benchmark) |
+| trending-content-scout | tiktok-script-writer | `top_content` (top TikTok examples + engagement data) |
+| trending-content-scout | twitter-thread-writer | `top_content` (top X threads + engagement data) |
+| trending-content-scout | reddit-post-writer | `top_content` (top Reddit posts + engagement data) |
+| trending-content-scout | content-pillar-atomizer | `platform_averages` (platform engagement for allocation) |
+| trending-content-scout | content-angle-ranker | `full output` (all data for angle scoring) |
+| content-angle-ranker | viral-post-writer | `recommended_angle` (best angle + format + hook) |
+| content-angle-ranker | tiktok-script-writer | `recommended_angle` (TikTok-specific angle) |
+| content-angle-ranker | affiliate-blog-builder | `recommended_angle` (blog-specific angle) |
+| content-angle-ranker | comparison-post-writer | `recommended_angle` (if angle is a comparison) |
+
+### S1 Research (internal)
+| From Skill | To Skill | Data Flowing |
+|---|---|---|
+| trending-content-scout | competitor-spy | `top_creators` (who's dominating this keyword) |
+| competitor-spy | trending-content-scout | `competitor_urls` (channels/profiles to analyze) |
+| trending-content-scout | keyword-cluster-architect | `engagement_data` (per-keyword engagement for cluster prioritization) |
+| traffic-analyzer | affiliate-program-search | `traffic_score` (program website health as evaluation factor) |
+| traffic-analyzer | competitor-spy | `traffic_sources` (competitor traffic breakdown) |
+| traffic-analyzer | niche-opportunity-finder | `traffic_data` (validates niche demand) |
+| competitor-spy | traffic-analyzer | `competitor_domains` (domains to analyze) |
+| affiliate-program-search | traffic-analyzer | `program_urls` (program websites to evaluate) |
+
+### S2 Content (internal — new)
+| From Skill | To Skill | Data Flowing |
+|---|---|---|
+| content-research-brief | viral-post-writer | `research_brief` (sources, data points, angles) |
+| content-research-brief | affiliate-blog-builder | `research_brief` (deep research for long-form) |
+| content-research-brief | tiktok-script-writer | `key_stats` (data-backed hooks for scripts) |
+| content-research-brief | infographic-generator | `master_data` (stats for visualization) |
+| content-research-brief | content-pillar-atomizer | `research_brief` (pillar to atomize) |
+| viral-post-writer | infographic-generator | `post_content` (create visual for the post) |
+| affiliate-blog-builder | infographic-generator | `article_data` (stats for featured image) |
+| trending-content-scout | content-research-brief | `trending_topics` (topics to research deeper) |
+| infographic-generator | social-media-scheduler | `infographic_spec` (image ready to schedule) |
 
 ### S2 Content → S3 Blog & SEO
 | From Skill | To Skill | Data Flowing |
@@ -69,6 +104,8 @@ The Affitor Flywheel is a closed-loop system where analytics feedback flows back
 |---|---|---|
 | conversion-tracker | affiliate-program-search | `top_converting_niches` → search for more programs in winning niches |
 | performance-report | niche-opportunity-finder | `performance_data` → identify which niches perform best |
+| performance-report | trending-content-scout | `your_metrics` → compare your content vs scout benchmark |
+| performance-report | content-angle-ranker | `winning_angles` → which of your angles actually performed |
 | seo-audit | monopoly-niche-finder | `ranking_data` → find niches where you're already winning |
 | ab-test-generator | purple-cow-audit | `winning_variants` → what resonates = what's remarkable |
 | internal-linking-optimizer | content-decay-detector | `link_structure` → pages with weak links may be decaying |

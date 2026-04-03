@@ -68,6 +68,35 @@ tone: string                  # OPTIONAL — "professional" | "casual" | "edgy" 
 3. Identify the "atomic units" — self-contained ideas that work independently
 4. Note the product/affiliate angle (if present)
 
+### Step 1.5: Check Platform Performance for This Topic (data-driven)
+
+Before atomizing equally across all platforms, understand which platforms are hot for this topic:
+
+**If `trending-content-scout` ran:**
+- Use platform-level engagement data from `pattern_analysis`
+- Check `engagement_benchmark.platform_averages` — which platform has highest engagement for this keyword?
+- Prioritize platforms where this topic has highest engagement
+- Adjust platform allocation accordingly (see below)
+
+**Quick check (no scout data):**
+- `web_search "[topic] youtube vs tiktok vs linkedin"` → which platform dominates discussion?
+- Check: is this topic more visual (→ TikTok/YouTube heavy) or professional (→ LinkedIn heavy)?
+- Look for: which platform shows up most in search results for this topic?
+
+**Apply to atomization allocation:**
+- Default: equal split across platforms
+- Data-driven: proportional to engagement potential
+  - If TikTok engagement is 5x LinkedIn for this topic → generate 5 TikTok scripts, 1 LinkedIn post
+  - If Reddit has high engagement → don't skip Reddit (often ignored by affiliates = opportunity)
+  - If YouTube dominates → consider atomizing into YouTube Shorts scripts instead of just TikTok
+
+**Platform allocation example:**
+```
+Default (no data):    Twitter: 5 | LinkedIn: 3 | Reddit: 3 | TikTok: 3 | Email: 2
+Data-driven (TikTok hot): Twitter: 3 | LinkedIn: 1 | Reddit: 2 | TikTok: 6 | Email: 2
+Data-driven (LinkedIn hot): Twitter: 3 | LinkedIn: 5 | Reddit: 2 | TikTok: 2 | Email: 2
+```
+
 ### Step 2: Platform Mapping
 
 Read `shared/references/platform-rules.md` for platform-specific rules.
@@ -242,6 +271,8 @@ After 7 days, check: which platform generated the most affiliate link clicks? Do
 - `ab-test-generator` (S6) — volume mode variants for testing
 
 ### Fed By
+- `trending-content-scout` (S1) — platform performance data for allocation
+- `content-angle-ranker` (S1) — recommended angle for the pillar topic
 - `affiliate-blog-builder` (S3) — pillar content to atomize
 - `monopoly-niche-finder` (S1) — positioning angle for all pieces
 - `content-repurposer` (S7) — repurposed content to atomize further

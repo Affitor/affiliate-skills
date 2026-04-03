@@ -91,6 +91,39 @@ For each competitor site/channel:
 Extract for each program found: name, estimated prominence (primary/secondary/mentioned),
 content type promoting it, and whether it appears on list.affitor.com.
 
+### Step 2.5: Analyze Competitor Content Engagement (data-driven)
+
+For each competitor, scan their recent content performance across social platforms.
+This reveals not just WHAT they create, but HOW WELL it performs.
+
+**With API (optional — see `shared/references/social-data-providers.md`):**
+- Search YouTube/TikTok for competitor brand name or channel
+- Get views, likes, comments, shares for their top 10-20 content pieces
+- Calculate engagement_score for each: `(likes × 2 + comments × 3 + shares × 5) / max(views, 1) × 1000`
+- Identify which content format gets them the highest engagement
+- Compare their engagement against `trending-content-scout` benchmark (if available)
+
+**Without API (default):**
+- `web_search "[competitor name] youtube channel"` → find their channel
+- `web_fetch` channel page → extract view counts from visible videos
+- `web_search "[competitor name] tiktok"` → find top videos with view counts
+- `web_search "[competitor name] best video"` → find their highest-performing content
+- Note: approximate data, but reveals relative performance patterns
+
+**Extract for each competitor:**
+- **Avg engagement score** — how well does their content perform overall?
+- **Strongest platform** — where do they get the most traction?
+- **Weakest platform** — which platforms are they ignoring? (gap to exploit)
+- **Top performing content** — their 3-5 best pieces by engagement
+- **Format that works for them** — which content format gets them the most engagement?
+
+Add these to the competitor assessment table in Step 5:
+
+| Dimension | Score (1-10) | Assessment |
+|-----------|-------------|------------|
+| Content Engagement | — | How well does their content perform? High = proven demand, low = weak execution |
+| Platform Strength | — | Which platform are they strongest on? Which are they ignoring? |
+
 ### Step 3: Analyze Their Content Strategy
 
 For each competitor, extract:
@@ -168,6 +201,10 @@ If any check fails, fix the output before delivering. Do not flag the checklist 
       top_content_formats: string[] # ["listicle", "comparison", "tutorial"]
       estimated_traffic: string     # "low" | "medium" | "high" (inferred from signals)
       replicability_score: number   # 1-10
+      avg_engagement_score: number  # Average engagement across their content
+      strongest_platform: string    # Platform where they perform best
+      weakest_platform: string      # Platform they're ignoring — gap to exploit
+      top_performing_content: string[] # Their 3-5 best pieces by engagement
     }
   ]
   validated_programs: [
@@ -275,6 +312,8 @@ User: "I'm entering the email marketing niche, help me spy on competitors"
 ## Flywheel Connections
 
 ### Feeds Into
+- `trending-content-scout` (S1) — competitor channels/profiles to scout for engagement data
+- `content-angle-ranker` (S1) — competitor gaps as angle candidates
 - `viral-post-writer` (S2) — competitor gaps reveal content opportunities
 - `purple-cow-audit` (S1) — competitive landscape for product evaluation
 - `grand-slam-offer` (S4) — competitive gaps to exploit in offers
@@ -282,6 +321,7 @@ User: "I'm entering the email marketing niche, help me spy on competitors"
 - `category-designer` (S8) — competitive landscape to differentiate from
 
 ### Fed By
+- `trending-content-scout` (S1) — top creators and engagement data for competitor analysis
 - `performance-report` (S6) — your performance data vs competitors
 - `seo-audit` (S6) — ranking data showing where competitors outrank you
 
@@ -294,6 +334,8 @@ chain_metadata:
   stage: "research"
   timestamp: string
   suggested_next:
+    - "trending-content-scout"
+    - "content-angle-ranker"
     - "purple-cow-audit"
     - "grand-slam-offer"
     - "affiliate-blog-builder"
