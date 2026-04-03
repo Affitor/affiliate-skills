@@ -1,6 +1,6 @@
 # Affiliate Skills by Affitor
 
-45 AI-powered skills for affiliate marketers. Full flywheel across 8 stages: Research (6), Content (5), Blog & SEO (7), Offers & Landing (8), Distribution (4), Analytics (5), Automation (5), Meta (5).
+50 AI-powered skills for affiliate marketers. Full flywheel across 8 stages: Research (9), Content (7), Blog & SEO (7), Offers & Landing (8), Distribution (4), Analytics (5), Automation (5), Meta (5).
 
 ## Repo structure
 
@@ -70,6 +70,25 @@ When executing skills, treat data sources with appropriate trust:
 - Reference: `shared/references/flywheel-connections.md` — master connection map
 - Reference: `shared/references/offer-frameworks.md` — Hormozi, bonus stacks, guarantees, value ladders
 - Reference: `shared/references/seo-strategy.md` — topical authority, keyword clustering, content moats
+
+## Version check
+
+At the start of each session, check for updates:
+
+```bash
+LOCAL=$(cat VERSION 2>/dev/null || echo "unknown")
+REMOTE=$(curl -s https://raw.githubusercontent.com/Affitor/affiliate-skills/main/VERSION 2>/dev/null || echo "")
+```
+
+If REMOTE > LOCAL, show once: `💡 affiliate-skills update available: v$LOCAL → v$REMOTE — run: git pull`
+If check fails, skip silently. Never block the session.
+
+## Feedback protocol
+
+When a skill underperforms (Self-Validation fails, data quality low, user rejects output),
+append a `skill_feedback` block to the output. See `shared/references/feedback-protocol.md`.
+
+For high/critical severity, suggest filing: https://github.com/Affitor/affiliate-skills/issues/new?labels=skill-feedback
 
 ## Commands
 

@@ -445,11 +445,29 @@ User: "Scout trending content about AI writing tools, I have RapidAPI configured
 → Output includes exact benchmark: median 18K views, top 10% needs 120K+
 → Recommend: `content-angle-ranker` to pick best angle, then `viral-post-writer`
 
+## Feedback & Issue Reporting
+
+When this skill produces unexpected, incomplete, or incorrect output, generate a
+`skill_feedback` block (see `shared/references/feedback-protocol.md` for full schema).
+
+**Skill-specific failure modes:**
+- **Empty results on all platforms:** Keyword too niche or all APIs/web_search returned nothing. Report as `data_quality` with the keyword used.
+- **Engagement scores all zero:** Metrics unavailable — only titles retrieved. Report as `data_quality`, note which platforms had no metrics.
+- **Format/hook classification wrong:** Agent classified a tutorial as a review. Report as `wrong_output` with the misclassified content.
+
+**Auto-detect triggers:**
+- `top_content` array has <5 items after scanning all platforms
+- `engagement_benchmark.sample_size` < 10
+- >50% of `content_gaps` are generic rather than specific
+
+Report issues: [GitHub Issues](https://github.com/Affitor/affiliate-skills/issues/new?labels=skill-feedback&title=trending-content-scout) | [Discussions](https://github.com/Affitor/affiliate-skills/discussions/categories/ideas)
+
 ## References
 
 - `shared/references/social-data-providers.md` — API configuration and provider options
 - `shared/references/flywheel-connections.md` — master flywheel connection map
 - `shared/references/affiliate-glossary.md` — affiliate marketing terminology
+- `shared/references/feedback-protocol.md` — issue detection and reporting standard
 
 ## Flywheel Connections
 

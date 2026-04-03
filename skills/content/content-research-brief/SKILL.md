@@ -329,11 +329,31 @@ User: "Research what people are really saying about ClickUp on Reddit"
 → Unique angle: Reddit users love the free tier but hate the learning curve →
   "ClickUp: the free tool that takes a month to learn (and why it's still worth it)"
 
+## Feedback & Issue Reporting
+
+When this skill produces unexpected, incomplete, or incorrect output, generate a
+`skill_feedback` block (see `shared/references/feedback-protocol.md` for full schema).
+
+**Skill-specific failure modes:**
+- **Most sources paywalled:** <3 sources fully fetched. Report as `data_quality`, list which URLs failed.
+- **All sources same perspective:** No balanced/critical viewpoints found. Report as `data_quality`, note bias direction.
+- **Hallucinated stats:** Agent generated a stat not from any fetched source. Report as `hallucination`, critical severity.
+- **Angles not unique:** All 3 angles are rephrased versions of the same take. Report as `wrong_output`.
+
+**Auto-detect triggers:**
+- `sources_fetched` < 3 (most failed)
+- All source `tags` are identical (no diversity)
+- Any data point in `master_data.stats` cannot be traced to a specific source URL
+- `angles` array has <2 entries
+
+Report issues: [GitHub Issues](https://github.com/Affitor/affiliate-skills/issues/new?labels=skill-feedback&title=content-research-brief) | [Discussions](https://github.com/Affitor/affiliate-skills/discussions/categories/ideas)
+
 ## References
 
 - `shared/references/social-data-providers.md` — API configuration for enhanced search
 - `shared/references/flywheel-connections.md` — master flywheel connection map
 - `shared/references/ftc-compliance.md` — source attribution and disclosure requirements
+- `shared/references/feedback-protocol.md` — issue detection and reporting standard
 
 ## Flywheel Connections
 

@@ -138,9 +138,26 @@ volume_output:
       angle: string        # What makes this one different
 ```
 
+## Feedback & Issue Reporting
+
+When this skill produces unexpected, incomplete, or incorrect output, generate a
+`skill_feedback` block (see `shared/references/feedback-protocol.md` for full schema).
+
+**Skill-specific failure modes:**
+- **[Failure mode 1]:** [What triggers it, what to report]
+- **[Failure mode 2]:** [What triggers it, what to report]
+
+**Auto-detect triggers for this skill:**
+- [Specific condition that means this skill underperformed]
+- [Another condition]
+
+Report issues: [GitHub Issues](https://github.com/Affitor/affiliate-skills/issues/new?labels=skill-feedback&title=your-skill-name) | [Discussions](https://github.com/Affitor/affiliate-skills/discussions/categories/ideas)
+
 ## References
 
 - `references/your-reference.md` — description of what it contains
 - `shared/references/ftc-compliance.md` — FTC disclosure requirements
 - `shared/references/affitor-branding.md` — branding rules
 - `shared/references/flywheel-connections.md` — master flywheel connection map
+- `shared/references/feedback-protocol.md` — issue detection and reporting standard
+- `shared/references/version-check.md` — update notification system

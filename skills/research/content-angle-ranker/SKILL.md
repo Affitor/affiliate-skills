@@ -399,11 +399,29 @@ User: "I'm good at storytelling and humor. What should I create about AI writing
 → Top: "I let AI write my LinkedIn posts for a week. My boss noticed." — Score: 9.1
   (story format, relatable hook, low competition on LinkedIn for this angle, perfect creator fit)
 
+## Feedback & Issue Reporting
+
+When this skill produces unexpected, incomplete, or incorrect output, generate a
+`skill_feedback` block (see `shared/references/feedback-protocol.md` for full schema).
+
+**Skill-specific failure modes:**
+- **All angles score within 0.5 points:** Scoring not differentiated enough. Report as `wrong_output` with the scores.
+- **Top angle is generic:** "Write a review of X" instead of a specific, titled angle. Report as `data_quality`.
+- **Downstream skill can't use recommended_skill_params:** Schema mismatch. Report as `chain_break`.
+
+**Auto-detect triggers:**
+- Score range (max - min) < 1.0 across all angles
+- <8 angles generated
+- `recommended_skill_params` missing required fields for the suggested next skill
+
+Report issues: [GitHub Issues](https://github.com/Affitor/affiliate-skills/issues/new?labels=skill-feedback&title=content-angle-ranker) | [Discussions](https://github.com/Affitor/affiliate-skills/discussions/categories/ideas)
+
 ## References
 
 - `shared/references/social-data-providers.md` — API configuration and engagement score formula
 - `shared/references/flywheel-connections.md` — master flywheel connection map
 - `shared/references/platform-rules.md` — platform-specific content guidelines
+- `shared/references/feedback-protocol.md` — issue detection and reporting standard
 
 ## Flywheel Connections
 

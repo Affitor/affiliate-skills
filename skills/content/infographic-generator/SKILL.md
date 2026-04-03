@@ -382,11 +382,29 @@ User: "Visualize the affiliate funnel steps as an infographic"
 → Steps: Research → Content → Landing → Deploy → Track → Optimize
 → Output: horizontal flow with icons and brief descriptions
 
+## Feedback & Issue Reporting
+
+When this skill produces unexpected, incomplete, or incorrect output, generate a
+`skill_feedback` block (see `shared/references/feedback-protocol.md` for full schema).
+
+**Skill-specific failure modes:**
+- **No extractable data from content:** Content is purely narrative, no stats/numbers. Report as `data_quality`.
+- **HTML output doesn't render correctly:** CSS issues, wrong dimensions, text overflow. Report as `wrong_output` with the HTML.
+- **Too many words on infographic:** >50 words makes it unreadable. Report as `wrong_output`.
+
+**Auto-detect triggers:**
+- `infographic_spec.data` has <2 data points
+- Total word count in all copy fields > 60
+- Dimensions don't match declared platform
+
+Report issues: [GitHub Issues](https://github.com/Affitor/affiliate-skills/issues/new?labels=skill-feedback&title=infographic-generator) | [Discussions](https://github.com/Affitor/affiliate-skills/discussions/categories/ideas)
+
 ## References
 
 - `shared/references/social-data-providers.md` — data sources for infographic content
 - `shared/references/platform-rules.md` — platform-specific image requirements
 - `shared/references/flywheel-connections.md` — master flywheel connection map
+- `shared/references/feedback-protocol.md` — issue detection and reporting standard
 
 ## Flywheel Connections
 

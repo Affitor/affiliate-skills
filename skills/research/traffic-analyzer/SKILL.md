@@ -303,11 +303,29 @@ User: "I found this small SaaS tool — screenpal.com. Is the advertiser legit?"
 → Global rank: ~180K, ~300K monthly visits
 → Score: 55/100 — "Fair. Niche tool with moderate traffic. Growing steadily. Low paid traffic (2%) suggests bootstrapped. Engagement is good (3.8 pages/visit). Worth promoting if commission is strong, but don't expect brand-name conversion rates."
 
+## Feedback & Issue Reporting
+
+When this skill produces unexpected, incomplete, or incorrect output, generate a
+`skill_feedback` block (see `shared/references/feedback-protocol.md` for full schema).
+
+**Skill-specific failure modes:**
+- **Domain not found in SimilarWeb:** Very new or very small site. Report as `data_quality`, note domain.
+- **All metrics null from web_search:** No traffic data findable. Report as `data_quality`, severity: medium.
+- **Traffic score seems wrong:** Score doesn't match known reality (e.g., Google.com scored 40/100). Report as `wrong_output`.
+
+**Auto-detect triggers:**
+- `traffic_score` is 0 or null for a well-known domain
+- All `traffic_sources` percentages are null
+- Comparison requested but only 1 domain returned data
+
+Report issues: [GitHub Issues](https://github.com/Affitor/affiliate-skills/issues/new?labels=skill-feedback&title=traffic-analyzer) | [Discussions](https://github.com/Affitor/affiliate-skills/discussions/categories/ideas)
+
 ## References
 
 - `shared/references/social-data-providers.md` — SimilarWeb API configuration
 - `shared/references/flywheel-connections.md` — master flywheel connection map
 - `shared/references/affiliate-glossary.md` — affiliate marketing terminology
+- `shared/references/feedback-protocol.md` — issue detection and reporting standard
 
 ## Flywheel Connections
 

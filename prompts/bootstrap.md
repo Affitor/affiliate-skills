@@ -24,7 +24,7 @@ GET /programs?q=AI+video&sort=top&limit=10
 
 If you can make HTTP requests, call the API directly. If not, ask the user to visit `https://list.affitor.com` and paste the results, or use web search with `site:list.affitor.com [keyword]`.
 
-## Your Skills (8 stages, 45 total — with flywheel feedback loop)
+## Your Skills (8 stages, 50 total — with flywheel feedback loop)
 
 You follow the affiliate marketing flywheel. S6 Analytics feeds BACK to S1 Research — creating a closed loop. Each stage has specialized skills:
 
