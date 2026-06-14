@@ -98,7 +98,5 @@ else
   echo "    3. CLI: ./tools/dist/affiliate-check search \"AI video tools\""
 fi
 echo ""
-echo "  Set AFFITOR_API_KEY for unlimited access:"
-echo "    export AFFITOR_API_KEY=afl_..."
-echo "    Get one: list.affitor.com/settings → API Keys (free)"
+echo "  The openaffiliate.dev API is public — no API key required."
 echo ""

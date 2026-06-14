@@ -86,7 +86,7 @@ Score each candidate on 4 dimensions (1-10 scale each):
 | Dimension | Weight | How to Assess |
 |-----------|--------|---------------|
 | Search Demand | 30% | `web_search "[niche] how to" — look at result count and autosuggest depth |
-| Program Availability | 30% | Search list.affitor.com or `web_search "[niche] affiliate programs"` — count quality programs |
+| Program Availability | 30% | Search openaffiliate.dev (`GET /api/programs?q=[niche]`) or `web_search "[niche] affiliate programs"` — count quality programs |
 | Competition Level | 25% | Search "[niche] best tools" — how saturated is the top 10? Fewer exact-match affiliate sites = less competition. Score 10 = very low competition |
 | Content Potential | 15% | Can tutorials, comparisons, listicles, and reviews be made for this niche easily? |
 
@@ -94,15 +94,16 @@ Score each candidate on 4 dimensions (1-10 scale each):
 
 Verdict: 7.5+ = "High Opportunity" / 5.5-7.4 = "Worth Testing" / <5.5 = "Saturated/Skip"
 
-### Step 4: Validate Top 3 Niches on list.affitor.com
+### Step 4: Validate Top 3 Niches on openaffiliate.dev
 
-For the top 3 niches, check `list.affitor.com` (see `references/list-affitor-api.md`)
+For the top 3 niches, query `GET https://openaffiliate.dev/api/programs?q=[niche]`
+(see `affiliate-program-search/references/list-affitor-api.md`)
 to verify real programs exist with good commission structures:
 - At least 3 programs with `reward_value` 20%+ OR `reward_type` cps_recurring
 - At least one program with `cookie_days` >= 30
 - Programs with `stars_count` > 5 (community-validated quality)
 
-If a niche scores well on demand but has no programs on list.affitor.com, use
+If a niche scores well on demand but has no programs on openaffiliate.dev, use
 `web_search "[niche] affiliate program signup"` to verify alternatives exist.
 
 ### Step 5: Build the Opportunity Brief
@@ -122,7 +123,7 @@ Map user's chosen niche to the affiliate funnel:
 Before presenting output, verify:
 
 - [ ] Search demand backed by data (autosuggest depth, result count)
-- [ ] Top niche has ≥3 programs with 20%+ commission on list.affitor.com
+- [ ] Top niche has ≥3 programs with 20%+ commission on openaffiliate.dev
 - [ ] Competition score reflects actual top-10 SERP analysis
 - [ ] Content angles are specific and actionable, not generic
 
@@ -193,7 +194,7 @@ If any check fails, fix the output before delivering. Do not flag the checklist 
 
 ## Next Steps
 
-1. Run `affiliate-program-search` to find the best [Niche] program on list.affitor.com
+1. Run `affiliate-program-search` to find the best [Niche] program on openaffiliate.dev
 2. Run `commission-calculator` to project 90-day earnings
 3. Run `tiktok-script-writer` or `twitter-thread-writer` to create your first piece of content
 ```
@@ -231,7 +232,7 @@ User: "I know a lot about Notion and productivity tools"
 
 ## References
 
-- `references/list-affitor-api.md` — how to fetch programs from list.affitor.com
+- `affiliate-program-search/references/list-affitor-api.md` — how to fetch programs from openaffiliate.dev
 - `shared/references/affiliate-glossary.md` — affiliate marketing terminology
 - `shared/references/ftc-compliance.md` — disclosure requirements
 - `shared/references/flywheel-connections.md` — master flywheel connection map

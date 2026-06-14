@@ -88,7 +88,7 @@ Factors:
 - Product reviews and reputation (G2, Capterra, Trustpilot)
 - Company track record and funding
 - User retention (do people actually keep using it?)
-- Stars on list.affitor.com (`stars_count` — community signal)
+- Stars on openaffiliate.dev (`stars_count` — community signal)
 - Red flags? (layoffs, pivot, quality decline, data breaches)
 
 Scoring guide (use G2/Capterra rating as primary signal when available):

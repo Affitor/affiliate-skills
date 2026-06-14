@@ -14,7 +14,7 @@ Full integration with slash commands and the `affiliate-check` CLI tool.
 
 1. Open Claude Code and paste:
 
-> Install affiliate-skills: run `git clone https://github.com/Affitor/affiliate-skills.git ~/.claude/skills/affiliate-skills && cd ~/.claude/skills/affiliate-skills && ./setup` then add an "affiliate-skills" section to CLAUDE.md that says to use `/affiliate-check` for all affiliate program lookups, and lists the available skills: 52 skills across 8 stages (research, content, blog, landing, distribution, analytics, automation, meta). Set `AFFITOR_API_KEY` env var for unlimited access.
+> Install affiliate-skills: run `git clone https://github.com/Affitor/affiliate-skills.git ~/.claude/skills/affiliate-skills && cd ~/.claude/skills/affiliate-skills && ./setup` then add an "affiliate-skills" section to CLAUDE.md that says to use `/affiliate-check` for all affiliate program lookups, and lists the available skills: 52 skills across 8 stages (research, content, blog, landing, distribution, analytics, automation, meta).
 
 2. Claude Code auto-discovers all 52 skills from the `SKILL.md` files
 3. Use naturally: *"Find me the best AI video affiliate program"* or *"Write a LinkedIn post about HeyGen"*
@@ -38,7 +38,7 @@ Works with ChatGPT Plus, Team, or Enterprise. No code required.
 
 1. Go to [ChatGPT → Create a GPT](https://chatgpt.com/gpts/editor)
 2. In **Instructions**, paste the content of [`prompts/bootstrap.md`](prompts/bootstrap.md)
-3. Enable **Web Browsing** (so it can call the API and browse list.affitor.com)
+3. Enable **Web Browsing** (so it can call the API and browse openaffiliate.dev)
 4. Optionally upload [`registry.json`](registry.json) and [`API.md`](API.md) as knowledge files
 5. Save and share with your team
 
@@ -87,7 +87,7 @@ Works with Gemini Advanced (file upload) or Google AI Studio.
    - Any specific `SKILL.md` files for skills you want to use
 2. Say: *"You are my affiliate marketing agent. Use these files as your instructions."*
 
-**Note:** Gemini can browse the web, so API calls to list.affitor.com work directly.
+**Note:** Gemini can browse the web, so API calls to openaffiliate.dev work directly.
 
 ---
 
@@ -102,7 +102,7 @@ Works with any AI that accepts text input — OpenClaw, Perplexity, Mistral, loc
 3. Paste it into your AI as the system prompt or first message
 4. Start with: *"Search for the best affiliate programs for [your niche]"*
 
-**For AI agents with HTTP access:** The bootstrap prompt includes API details. The AI will call `list.affitor.com/api/v1/programs` directly.
+**For AI agents with HTTP access:** The bootstrap prompt includes API details. The AI will call `openaffiliate.dev/api/programs` directly. No API key needed — the API is fully public.
 
 **For AI without HTTP access:** Ask the AI to generate the search URL, visit it yourself, and paste the JSON response back.
 
@@ -120,18 +120,18 @@ Want to try before you commit? Paste this into any AI right now:
 
 ```
 Search the Affitor affiliate directory for AI video tools.
-Use this API: GET https://list.affitor.com/api/v1/programs?q=AI+video&sort=top&limit=5
+Use this API: GET https://openaffiliate.dev/api/programs?q=AI+video&sort=relevance&limit=5
 Show me the results in a table with: Name, Reward Value, Cookie Days, Stars.
 Then recommend the best one and explain why.
 ```
 
-No API key needed. Free tier returns up to 5 results.
+No API key needed. The API is fully public and open.
 
 ---
 
 ## Next Steps
 
-- Browse programs: [list.affitor.com](https://list.affitor.com)
+- Browse programs: [openaffiliate.dev](https://openaffiliate.dev)
 - Full skill reference: [README.md](README.md)
 - API documentation: [API.md](API.md)
 - Contribute a skill: [CONTRIBUTING.md](CONTRIBUTING.md)

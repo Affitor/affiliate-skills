@@ -79,6 +79,6 @@ Submit a PR adding your result in YAML format between the markers above:
 
 ### What happens after submission:
 - Maintainers review the PR and mark `verified: true` if credible
-- Verified results appear on list.affitor.com/skills (via registry)
+- Verified results are visible in this GitHub repo and discoverable via `npx skills add Affitor/affiliate-skills`
 - Your handle gets credited in `registry.json` `contributors[]` field
 - Results feed back into skill quality metrics and S1 scoring calibration

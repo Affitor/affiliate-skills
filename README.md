@@ -41,7 +41,7 @@ Paste this into any AI:
 
 ```
 Search the Affitor affiliate directory for AI video tools.
-Use this API: GET https://list.affitor.com/api/v1/programs?q=AI+video&sort=top&limit=5
+Use this API: GET https://openaffiliate.dev/api/programs?q=AI+video&sort=relevance&limit=5
 Show me the results in a table with: Name, Reward Value, Cookie Days, Stars.
 Then recommend the best one and explain why.
 ```
@@ -58,7 +58,7 @@ Then recommend the best one and explain why.
 
 | Skill | Mode | What it does |
 |-------|------|--------------|
-| Program Search | Data analyst | Live program data from list.affitor.com — commissions, cookies, comparisons. |
+| Program Search | Data analyst | Live program data from openaffiliate.dev — commissions, cookies, comparisons. |
 | Trending Scout | Intelligence | Scan YouTube/TikTok/X/Reddit for top content by engagement. Find what's winning. |
 | Research Brief | Journalist | Collect real sources, extract stats, generate unique angles backed by data. |
 | Angle Ranker | Strategist | Score content angles by competition, engagement prediction, and platform fit. |
@@ -233,7 +233,7 @@ Find programs, scout trending content, analyze traffic, rank angles.
 
 | Skill | Description |
 |-------|-------------|
-| [affiliate-program-search](skills/research/affiliate-program-search/) | Research and score programs from list.affitor.com |
+| [affiliate-program-search](skills/research/affiliate-program-search/) | Research and score programs from openaffiliate.dev |
 | [niche-opportunity-finder](skills/research/niche-opportunity-finder/) | Find underserved niches with high potential |
 | [competitor-spy](skills/research/competitor-spy/) | Analyze competitor affiliate strategies + engagement |
 | [commission-calculator](skills/research/commission-calculator/) | Calculate and compare commission structures |
@@ -411,7 +411,7 @@ You don't have to start from S1. Jump in wherever you are:
 Building an agent pipeline? Here's what you need:
 
 - **[`registry.json`](registry.json)** — machine-readable index of all 52 skills with metadata
-- **[`API.md`](API.md)** — full REST API documentation for list.affitor.com
+- **[`API.md`](API.md)** — full REST API documentation for openaffiliate.dev
 - **[`prompts/bootstrap.md`](prompts/bootstrap.md)** — system prompt that bootstraps the full agent
 - **[`social-data-providers.md`](shared/references/social-data-providers.md)** — configure API providers for social data
 - **`agents/openai.yaml`** — OpenAI-compatible tool definitions (in skills that have them)
@@ -421,7 +421,7 @@ Building an agent pipeline? Here's what you need:
 
 We welcome skills from the community. See [CONTRIBUTING.md](CONTRIBUTING.md) for how to submit your own skill.
 
-Every merged skill gets published to [list.affitor.com/skills](https://list.affitor.com/skills).
+Every merged skill is available via `npx skills add Affitor/affiliate-skills` and the GitHub repo.
 
 ## License
 
@@ -429,4 +429,4 @@ MIT
 
 ---
 
-Built by [Affitor](https://affitor.com). Directory: [list.affitor.com](https://list.affitor.com)
+Built by [Affitor](https://affitor.com). Program directory: [openaffiliate.dev](https://openaffiliate.dev)

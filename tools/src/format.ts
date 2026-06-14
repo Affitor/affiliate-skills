@@ -115,10 +115,6 @@ export function formatComparison(programs: Program[]): string {
   return lines.join("\n");
 }
 
-export function formatFreeTierNotice(): string {
-  return `\n  ${YELLOW}Free tier: max 5 results, no pagination.${RESET}\n  ${DIM}Get unlimited → list.affitor.com/settings → API Keys (free)${RESET}\n`;
-}
-
 export function formatError(message: string): string {
   return `\n  ${BOLD}\x1b[31mError:${RESET} ${message}\n`;
 }
@@ -136,7 +132,8 @@ export function formatStatus(info: {
   lines.push(`  ${CYAN}Server:${RESET}    running on port ${info.port}`);
   lines.push(`  ${CYAN}Uptime:${RESET}    ${info.uptime}`);
   lines.push(`  ${CYAN}Cache:${RESET}     ${info.cache.entries} entries (oldest: ${info.cache.oldestAge})`);
-  lines.push(`  ${CYAN}API Key:${RESET}   ${info.apiKey ? `${GREEN}configured${RESET}` : `${YELLOW}not set (free tier)${RESET}`}`);
+  lines.push(`  ${CYAN}Source:${RESET}    openaffiliate.dev ${DIM}(public API, no key needed)${RESET}`);
+  lines.push(`  ${CYAN}API Key:${RESET}   ${info.apiKey ? `${GREEN}configured${RESET}` : `${YELLOW}not used${RESET}`}`);
   lines.push("");
   return lines.join("\n");
 }

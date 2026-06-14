@@ -66,7 +66,7 @@ This skill belongs to Stage S1: Research
 
 ### Step 1: Gather Program Details
 
-If program details are missing, pull from list.affitor.com (see `references/list-affitor-api.md`).
+If program details are missing, pull from openaffiliate.dev (see `references/list-affitor-api.md` in affiliate-program-search).
 
 Key fields to extract: `reward_value`, `reward_type`, `cookie_days`.
 
@@ -258,7 +258,7 @@ and what realistic first 90 days looks like]
 
 ## Next Steps
 
-1. Run `affiliate-program-search` to verify these programs are on list.affitor.com
+1. Run `affiliate-program-search` to verify these programs are on openaffiliate.dev
 2. Run `niche-opportunity-finder` if you want to compare across niches, not just programs
 3. Start creating content — your first sale typically comes at [estimated timeframe]
 ```
@@ -269,7 +269,7 @@ and what realistic first 90 days looks like]
   Ask user for rough estimate ("Do you have any traffic yet, or are you starting from zero?")
 - **Commission is percentage but no product price:** Use web_search to estimate.
   If still unknown, run calculator with $50, $100, $200 placeholders and show sensitivity.
-- **Program not found on list.affitor.com:** Use web_search to find official affiliate
+- **Program not found on openaffiliate.dev:** Use web_search to find official affiliate
   program page. Extract commission from there.
 - **Unrealistic goal stated (e.g., "$10K/month in 30 days"):** Complete the calculation,
   then honestly flag the traffic required (e.g., "This would require 2M visitors/month —
@@ -303,7 +303,7 @@ User: "I want to make $1,000/month from affiliate marketing, how long will it ta
 
 ## References
 
-- `references/list-affitor-api.md` — fetch live program data for commission structures
+- `affiliate-program-search/references/list-affitor-api.md` — fetch live program data from openaffiliate.dev
 - `shared/references/affiliate-glossary.md` — reward_type definitions
 - `shared/references/flywheel-connections.md` — master flywheel connection map
 

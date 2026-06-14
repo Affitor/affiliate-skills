@@ -103,7 +103,7 @@ async function request(port: number, path: string): Promise<string> {
 
 function printHelp() {
   console.log(`
-  ${"\x1b[1m"}affiliate-check${"\x1b[0m"} — Live affiliate program data from list.affitor.com
+  ${"\x1b[1m"}affiliate-check${"\x1b[0m"} — Live affiliate program data from openaffiliate.dev
 
   ${"\x1b[1m"}USAGE${"\x1b[0m"}
     affiliate-check search <query>              Search programs by name/keyword
@@ -118,10 +118,8 @@ function printHelp() {
     affiliate-check stop                        Stop the background server
     affiliate-check help                        Show this help
 
-  ${"\x1b[1m"}ENVIRONMENT${"\x1b[0m"}
-    AFFITOR_API_KEY    API key from list.affitor.com (optional)
-                       Without key: free tier (max 5 results)
-                       Get one: list.affitor.com/settings → API Keys (free)
+  ${"\x1b[1m"}DATA${"\x1b[0m"}
+    Programs come from openaffiliate.dev — a public API, no key required.
 
   ${"\x1b[1m"}EXAMPLES${"\x1b[0m"}
     affiliate-check search "AI video"

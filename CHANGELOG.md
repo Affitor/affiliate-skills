@@ -36,6 +36,6 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 ### Added
 - Initial release with 45 skills across 8 stages
 - affiliate-check CLI tool
-- list.affitor.com API integration
+- openaffiliate.dev API integration
 - Bootstrap prompt for any AI
 - registry.json machine-readable index

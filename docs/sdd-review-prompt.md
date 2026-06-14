@@ -47,7 +47,7 @@ Someone who already has a product doesn't need S1. Someone who already has a blo
 Each skill must be based on methods that have actually earned real money, verified. Not "best practices" from blogs, but how real people earned real commissions.
 
 ### P6: Community is the moat
-A skill written by one person is useful. Skills contributed by a community of affiliate marketers (each contributing their winning method) become a knowledge base no one can copy. list.affitor.com is where they contribute and discover.
+A skill written by one person is useful. Skills contributed by a community of affiliate marketers (each contributing their winning method) become a knowledge base no one can copy. The GitHub repo (`Affitor/affiliate-skills`) and `npx skills add Affitor/affiliate-skills` are where they contribute and discover.
 
 ### P7: Agent-ready, not just human-readable
 Skills are not just for humans to read and execute manually. The goal is: affiliate marketers at any level give an AI agent the skill, then the agent executes it. Skills must be specific enough for machines to understand, clear enough for humans to verify.
@@ -69,7 +69,7 @@ This SDD was designed by mapping challenges from two reviewer perspectives (syst
 | P4 (standalone) | 95% | Each skill has defaults, error handling for missing context, standalone examples |
 | P8 (opensource) | 85% | MIT license, transparent SKILL.md, visible references, documented spec |
 | P3 (chain) | 80% | Output Schema → Input Schema mapping, field-level chaining documented |
-| P6 (community) | 75% | CONTRIBUTING.md, registry.json auto-publish, list.affitor.com integration |
+| P6 (community) | 75% | CONTRIBUTING.md, registry.json auto-publish, openaffiliate.dev program data |
 | P1 (funnel) | 70% | S1-S5 shipped, S6-S8 documented in spec + CONTRIBUTING.md |
 
 **Gaps:**
@@ -163,7 +163,7 @@ S6 data feeds: case-studies.md (D1 Tier 3), scoring weights calibration (D4), co
 ### What NOT to change (already serving principles correctly)
 
 - Conversation context chaining, not files (P3, P4)
-- list.affitor.com as primary data source (P6 — community hub IS the moat)
+- openaffiliate.dev as primary data source (P6 — open public API, no auth required)
 - "Viral" naming for viral-post-writer (P5 — frameworks backed by 7 patterns + case studies)
 - S6-S8 entries in evals.json (P1 — TDD scaffolding for planned stages)
 - Self-contained HTML output (P2, P4, FP5 — zero dependency portability)

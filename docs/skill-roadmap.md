@@ -4,7 +4,7 @@
 
 | Skill | Stage | Path | Description |
 |-------|-------|------|-------------|
-| `affiliate-program-search` | S1: Research | `skills/research/` | Research and score programs from list.affitor.com |
+| `affiliate-program-search` | S1: Research | `skills/research/` | Research and score programs from openaffiliate.dev |
 | `commission-calculator` | S1: Research | `skills/research/` | Calculate and compare affiliate commissions |
 | `competitor-spy` | S1: Research | `skills/research/` | Analyze competitor affiliate strategies |
 | `niche-opportunity-finder` | S1: Research | `skills/research/` | Find underserved affiliate niches |

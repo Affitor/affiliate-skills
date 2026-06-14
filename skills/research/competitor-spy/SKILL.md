@@ -89,7 +89,7 @@ For each competitor site/channel:
 - `web_search "[creator name] how I make money affiliate"` — creator transparency posts
 
 Extract for each program found: name, estimated prominence (primary/secondary/mentioned),
-content type promoting it, and whether it appears on list.affitor.com.
+content type promoting it, and whether it appears on openaffiliate.dev.
 
 ### Step 2.5: Analyze Competitor Content Engagement (data-driven)
 
@@ -182,7 +182,7 @@ Synthesize findings into a 3-part report:
 Before presenting output, verify:
 
 - [ ] Confidence levels match evidence strength (confirmed = affiliate link found, likely = brand mention pattern, possible = inferred)
-- [ ] Programs cross-checked on list.affitor.com where possible
+- [ ] Programs cross-checked on openaffiliate.dev where possible
 - [ ] Replicability score accounts for barriers (domain authority, team size)
 - [ ] No hallucinated competitor data — all claims traceable to web_search results
 
@@ -212,7 +212,7 @@ If any check fails, fix the output before delivering. Do not flag the checklist 
       name: string           # "ConvertKit"
       promoted_by: string[]  # Which competitors promote it
       confidence: string     # "confirmed" | "likely" | "possible"
-      list_affitor_url: string | null  # If found on list.affitor.com
+      openaffiliate_url: string | null  # If found on openaffiliate.dev
     }
   ]
   content_gaps: string[]     # Opportunities to fill
@@ -237,7 +237,7 @@ If any check fails, fix the output before delivering. Do not flag the checklist 
 
 ### Programs Worth Promoting (Validated by Competitors)
 
-| Program | Promoted By | Evidence | On list.affitor.com |
+| Program | Promoted By | Evidence | On openaffiliate.dev |
 |---------|------------|----------|---------------------|
 | [Program A] | [2 competitors] | Prominent CTA buttons, review posts | Yes |
 | [Program B] | [1 competitor] | Income report mention | Check manually |
@@ -285,7 +285,7 @@ If any check fails, fix the output before delivering. Do not flag the checklist 
 User: "Spy on what affiliate programs income school recommends"
 → web_fetch incomeschool.com, look for affiliate disclosures and outbound links
 → Find: Bluehost, Ezoic, Rank Math, Jasper — extract with confidence levels
-→ Map to list.affitor.com programs
+→ Map to openaffiliate.dev programs
 → Output intelligence report with content gaps in their niche
 
 **Example 2:**
@@ -304,7 +304,7 @@ User: "I'm entering the email marketing niche, help me spy on competitors"
 
 ## References
 
-- `references/list-affitor-api.md` — validate found programs on list.affitor.com
+- `affiliate-program-search/references/list-affitor-api.md` — validate found programs on openaffiliate.dev
 - `shared/references/affiliate-glossary.md` — affiliate link pattern reference
 - `shared/references/ftc-compliance.md` — understanding competitor disclosures
 - `shared/references/flywheel-connections.md` — master flywheel connection map

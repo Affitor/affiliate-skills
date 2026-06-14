@@ -36,7 +36,7 @@ API-dependent skills.
 1. Start a new Gemini Advanced conversation
 2. Click the **attachment icon** and upload:
    - `bootstrap.md` — core skill system context
-   - `docs/API.md` — API reference for `list.affitor.com/api/v1`
+   - `docs/API.md` — API reference for `openaffiliate.dev/api`
    - `registry.json` — full skill index
    - The specific `SKILL.md` for the skill you want to run (e.g., `skills/email-sequence/SKILL.md`)
 3. In your message, reference the uploaded files:
@@ -79,7 +79,7 @@ Swap skill SKILL.md files into context dynamically to run different skill workfl
 ## Tips
 
 - **Web browsing + API calls**: Gemini Advanced's web browsing capability can reach
-  `list.affitor.com/api/v1` endpoints — enable it for skills that require live program data
+  `openaffiliate.dev/api` endpoints — enable it for skills that require live program data
 - **Large context window**: Gemini 2.0 handles 1M tokens — upload the entire skills directory
   contents if needed, Gemini won't truncate
 - **Gems (Gemini's custom agents)**: Create a Gem with `bootstrap.md` as its instructions and

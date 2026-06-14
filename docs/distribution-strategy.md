@@ -224,4 +224,4 @@
 - ClawHub download count
 - Awesome list PR acceptance rate
 - Newsletter mention conversions
-- Referral traffic to list.affitor.com
+- Referral traffic to openaffiliate.dev

@@ -45,7 +45,7 @@ That means it works everywhere:
 
 Paste this into any AI:
 
-"Search the Affitor directory for AI video tools. Use API: GET https://list.affitor.com/api/v1/programs?q=AI+video&sort=top&limit=5"
+"Search the Affitor directory for AI video tools. Use API: GET https://openaffiliate.dev/api/programs?q=AI+video&sort=top&limit=5"
 
 7/ MIT licensed. Open source. Looking for contributors.
 

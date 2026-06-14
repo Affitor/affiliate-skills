@@ -1,126 +1,146 @@
 {
-  "_comment": "Sample response from GET /api/v1/programs?type=affiliate_program&q=AI+video&sort=trending&limit=5. Use for offline development and testing. Field names match the live list.affitor.com API exactly.",
-  "data": [
+  "_comment": "Sample response from GET https://openaffiliate.dev/api/programs?q=AI+video&sort=relevance&limit=5. Use for offline development and testing. Field names match the live openaffiliate.dev API exactly. No API key or auth required — the API is fully public.",
+  "programs": [
     {
-      "id": "sample-uuid-001",
       "slug": "heygen",
       "name": "HeyGen",
       "url": "https://heygen.com",
+      "logo": "https://openaffiliate.dev/logos/heygen.png",
+      "category": "AI Video",
       "description": "AI video generation platform. Create studio-quality videos with AI avatars, voice cloning, and video translation in 175+ languages.",
-      "reward_type": "cps_recurring",
-      "reward_value": "30%",
-      "reward_duration": "12 months",
-      "cookie_days": 60,
-      "stars_count": 42,
-      "views_count": 1200,
-      "comments_count": 5,
+      "shortDescription": "AI avatars + voice cloning for video creation",
+      "commission": {
+        "type": "recurring",
+        "rate": "30%",
+        "currency": "USD",
+        "duration": "12 months",
+        "conditions": "First payment after 30-day hold"
+      },
+      "cookieDays": 60,
+      "payout": {
+        "minimum": 50,
+        "currency": "USD",
+        "frequency": "monthly",
+        "methods": ["paypal", "bank_transfer"]
+      },
       "tags": ["ai", "video", "marketing"],
-      "type": "affiliate_program",
-      "source": "user",
-      "created_at": "2026-01-15T10:00:00.000Z",
-      "updated_at": "2026-03-10T14:30:00.000Z",
-      "profiles": {
-        "handle": "sonpiaz",
-        "avatar_url": "https://example.com/avatar.jpg",
-        "name": "Son Piaz"
-      }
+      "stars": 42,
+      "verified": true,
+      "agentPrompt": "HeyGen lets marketers create professional AI avatar videos without cameras or studios. Best for: demo videos, course content, multilingual marketing."
     },
     {
-      "id": "sample-uuid-002",
       "slug": "synthesia",
       "name": "Synthesia",
       "url": "https://synthesia.io",
+      "logo": "https://openaffiliate.dev/logos/synthesia.png",
+      "category": "AI Video",
       "description": "AI video creation platform for enterprise. Create professional training videos, marketing content, and presentations with AI avatars.",
-      "reward_type": "cps_one_time",
-      "reward_value": "$150",
-      "reward_duration": null,
-      "cookie_days": 90,
-      "stars_count": 28,
-      "views_count": 890,
-      "comments_count": 3,
+      "shortDescription": "Enterprise AI video with 160+ avatars",
+      "commission": {
+        "type": "one_time",
+        "rate": "$150",
+        "currency": "USD",
+        "duration": null,
+        "conditions": null
+      },
+      "cookieDays": 90,
+      "payout": {
+        "minimum": 100,
+        "currency": "USD",
+        "frequency": "monthly",
+        "methods": ["paypal"]
+      },
       "tags": ["ai", "video", "enterprise"],
-      "type": "affiliate_program",
-      "source": "user",
-      "created_at": "2026-01-20T08:00:00.000Z",
-      "updated_at": "2026-03-05T11:00:00.000Z",
-      "profiles": {
-        "handle": "affiliate_pro",
-        "avatar_url": "https://example.com/avatar2.jpg",
-        "name": "Affiliate Pro"
-      }
+      "stars": 28,
+      "verified": true,
+      "agentPrompt": "Synthesia targets enterprise L&D teams. Best for: compliance training, onboarding videos, internal comms at scale."
     },
     {
-      "id": "sample-uuid-003",
       "slug": "descript",
       "name": "Descript",
       "url": "https://descript.com",
+      "logo": "https://openaffiliate.dev/logos/descript.png",
+      "category": "AI Video",
       "description": "All-in-one AI video and podcast editor. Edit video by editing text, AI voice cloning, screen recording, and transcription.",
-      "reward_type": "cps_recurring",
-      "reward_value": "15%",
-      "reward_duration": "lifetime",
-      "cookie_days": 30,
-      "stars_count": 15,
-      "views_count": 450,
-      "comments_count": 2,
+      "shortDescription": "Edit video like a doc — AI-powered",
+      "commission": {
+        "type": "recurring",
+        "rate": "15%",
+        "currency": "USD",
+        "duration": "lifetime",
+        "conditions": null
+      },
+      "cookieDays": 30,
+      "payout": {
+        "minimum": 50,
+        "currency": "USD",
+        "frequency": "monthly",
+        "methods": ["paypal", "stripe"]
+      },
       "tags": ["ai", "video", "podcast", "editing"],
-      "type": "affiliate_program",
-      "source": "user",
-      "created_at": "2026-02-01T12:00:00.000Z",
-      "updated_at": "2026-03-01T09:00:00.000Z",
-      "profiles": {
-        "handle": "creator_tools",
-        "avatar_url": "https://example.com/avatar3.jpg",
-        "name": "Creator Tools"
-      }
+      "stars": 15,
+      "verified": true,
+      "agentPrompt": "Descript appeals to podcasters and YouTubers who want fast text-based editing. Lifetime recurring commission makes it a strong long-term earner."
     },
     {
-      "id": "sample-uuid-004",
       "slug": "invideo-ai",
       "name": "InVideo AI",
       "url": "https://invideo.io",
+      "logo": "https://openaffiliate.dev/logos/invideo-ai.png",
+      "category": "AI Video",
       "description": "AI-powered video creation from text prompts. Turn any idea into a publish-ready video with AI script, stock footage, and voiceover.",
-      "reward_type": "cps_recurring",
-      "reward_value": "25%",
-      "reward_duration": "12 months",
-      "cookie_days": 120,
-      "stars_count": 19,
-      "views_count": 620,
-      "comments_count": 4,
+      "shortDescription": "Text-to-video in minutes with AI",
+      "commission": {
+        "type": "recurring",
+        "rate": "25%",
+        "currency": "USD",
+        "duration": "12 months",
+        "conditions": null
+      },
+      "cookieDays": 120,
+      "payout": {
+        "minimum": 25,
+        "currency": "USD",
+        "frequency": "monthly",
+        "methods": ["paypal"]
+      },
       "tags": ["ai", "video", "content-creation"],
-      "type": "affiliate_program",
-      "source": "user",
-      "created_at": "2026-01-25T15:00:00.000Z",
-      "updated_at": "2026-03-08T16:00:00.000Z",
-      "profiles": {
-        "handle": "vid_marketer",
-        "avatar_url": "https://example.com/avatar4.jpg",
-        "name": "Vid Marketer"
-      }
+      "stars": 19,
+      "verified": false,
+      "agentPrompt": "InVideo AI targets social media creators and small businesses. 120-day cookie is one of the longest in the AI video category."
     },
     {
-      "id": "sample-uuid-005",
       "slug": "pictory",
       "name": "Pictory",
       "url": "https://pictory.ai",
+      "logo": "https://openaffiliate.dev/logos/pictory.png",
+      "category": "AI Video",
       "description": "AI video summarization and creation. Turn blog posts and long-form content into short branded videos with automatic captions.",
-      "reward_type": "cps_recurring",
-      "reward_value": "20%",
-      "reward_duration": "12 months",
-      "cookie_days": 45,
-      "stars_count": 8,
-      "views_count": 280,
-      "comments_count": 1,
+      "shortDescription": "Repurpose blog posts into short videos automatically",
+      "commission": {
+        "type": "recurring",
+        "rate": "20%",
+        "currency": "USD",
+        "duration": "12 months",
+        "conditions": null
+      },
+      "cookieDays": 45,
+      "payout": {
+        "minimum": 50,
+        "currency": "USD",
+        "frequency": "monthly",
+        "methods": ["paypal"]
+      },
       "tags": ["ai", "video", "repurposing"],
-      "type": "affiliate_program",
-      "source": "user",
-      "created_at": "2026-02-10T10:00:00.000Z",
-      "updated_at": "2026-02-28T13:00:00.000Z",
-      "profiles": {
-        "handle": "content_scale",
-        "avatar_url": "https://example.com/avatar5.jpg",
-        "name": "Content Scale"
-      }
+      "stars": 8,
+      "verified": false,
+      "agentPrompt": "Pictory is ideal for bloggers and content teams repurposing written content into video. Positions well in SEO-focused content strategies."
     }
   ],
-  "count": 5
+  "total": 5,
+  "filters": {
+    "q": "AI video",
+    "sort": "relevance",
+    "limit": 5
+  }
 }

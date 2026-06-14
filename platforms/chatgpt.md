@@ -8,7 +8,7 @@ is required for the majority of skills.
 
 **What works well:**
 - Content, blog post, and landing page generation skills
-- API-powered skills (web browsing handles HTTP calls to `list.affitor.com/api/v1`)
+- API-powered skills (web browsing handles HTTP calls to `openaffiliate.dev/api`)
 - Skills that output text, markdown, or structured data
 
 **Requires workaround:**
@@ -26,7 +26,7 @@ Best for teams or repeated use — configure once, use always.
 4. Enable **Web Browsing** in the Capabilities section
 5. Under **Knowledge**, upload:
    - `registry.json` — skill index, lets the GPT discover available skills
-   - `docs/API.md` — HTTP reference for `list.affitor.com/api/v1`
+   - `docs/API.md` — HTTP reference for `openaffiliate.dev/api`
    - Any specific `SKILL.md` files for workflows you use often (e.g., `skills/blog-post/SKILL.md`)
 6. Name the GPT (e.g., "Affitor Skills Agent") and save
 7. Start a conversation: `Run the /blog-post skill for [program name]`
@@ -65,7 +65,7 @@ Quickest way to try it out — no setup required.
 
 - **Best-performing skills in ChatGPT**: `/blog-post`, `/landing-page`, `/content-brief`,
   `/email-sequence`, `/product-comparison` — all text-output skills work great
-- **For API-heavy skills**: enable web browsing so ChatGPT can hit `list.affitor.com/api/v1`
+- **For API-heavy skills**: enable web browsing so ChatGPT can hit `openaffiliate.dev/api`
   endpoints directly
 - **Upload skill files**: for complex multi-step workflows, upload the specific `SKILL.md` so
   ChatGPT has the exact step definitions as reference

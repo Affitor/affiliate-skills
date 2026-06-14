@@ -1,111 +1,132 @@
-# list.affitor.com Data Access
+> **DEPRECATED**: This file previously documented the list.affitor.com API, which has been retired.
+> The data source is now **openaffiliate.dev**. All references below have been updated accordingly.
 
-## Current State (as of 2026-03-15)
+# openaffiliate.dev Data Access
 
-list.affitor.com runs on Next.js + Supabase. Programs are stored in the `programs` table.
+## Overview
 
-## Method 1: API v1 (preferred, requires API key)
+openaffiliate.dev is a public, open API — no API key, no authentication, no rate limits, no free-tier restrictions.
 
-Base URL: `https://list.affitor.com/api/v1`
+Base URL: `https://openaffiliate.dev/api`
 
-Authentication: API key in header
-```
-Authorization: Bearer afl_xxxxx
-```
+## Method 1: API (preferred)
 
-API keys are created at list.affitor.com/settings (requires login). Keys need `programs:read` scope minimum.
+### GET /api/programs
 
-### GET /api/v1/programs
-
-Lists published programs and skills.
+Lists affiliate programs. Supports search and filtering via query params.
 
 Query params:
 ```
-type=affiliate_program    Filter by type (affiliate_program | skill)
-sort=trending             Sort: trending (default) | new | top
-limit=30                  Results per page (default 30, max 100)
-offset=0                  Pagination offset
-q=search_term             Search name + description (ilike)
-reward_type=cps_recurring Filter by reward type
-tags=ai,video             Filter by tags (match ANY)
-min_cookie_days=30        Minimum cookie duration in days
+q=search_term     Search name + description
+sort=relevance    Sort: relevance (default) | other supported sort values
+limit=30          Results per page
 ```
 
-All params are live. Use `q`, `reward_type`, `tags`, `min_cookie_days` together for precise filtering.
+Example request:
+```
+GET https://openaffiliate.dev/api/programs?q=ai+video&sort=relevance&limit=10
+```
 
 Response format:
 ```json
 {
-  "data": [
+  "programs": [
     {
-      "id": "uuid",
       "slug": "heygen",
       "name": "HeyGen",
       "url": "https://heygen.com",
+      "logo": "https://...",
+      "category": "ai",
+      "commission": {
+        "type": "cps_recurring",
+        "rate": "30%",
+        "currency": "USD",
+        "duration": "12 months",
+        "conditions": ""
+      },
+      "cookieDays": 60,
+      "payout": {
+        "minimum": 50,
+        "currency": "USD",
+        "frequency": "monthly",
+        "methods": ["paypal"]
+      },
       "description": "AI video generation platform...",
-      "reward_type": "cps_recurring",
-      "reward_value": "30%",
-      "reward_duration": "12 months",
-      "cookie_days": 60,
-      "stars_count": 42,
-      "views_count": 1200,
-      "comments_count": 5,
+      "shortDescription": "Create AI videos at scale",
       "tags": ["ai", "video"],
-      "type": "affiliate_program",
-      "source": "user",
-      "created_at": "2026-01-15T...",
-      "updated_at": "2026-01-15T...",
-      "profiles": {
-        "handle": "sonpiaz",
-        "avatar_url": "...",
-        "name": "Son Piaz"
-      }
+      "stars": 42,
+      "verified": true,
+      "agentPrompt": ""
     }
   ],
-  "count": 30
+  "total": 1,
+  "filters": {}
 }
 ```
 
-### RewardType values
+The response key is `programs` (array). The raw API uses **camelCase** fields.
+
+### GET /api/programs/:slug
+
+Returns a single program by its slug. No auth required.
+
+Example:
 ```
-cpc             Cost per click
-cpl             Cost per lead
-cps_one_time    Cost per sale, one-time
-cps_recurring   Cost per sale, recurring
-cps_lifetime    Cost per sale, lifetime
-other           Other commission structure
+GET https://openaffiliate.dev/api/programs/heygen
 ```
 
-### GET /api/v1/programs/:id
+Returns the program object directly (same shape as a single item in `programs[]` above).
 
-Returns a single program by UUID. Requires `programs:read` scope.
+## Raw API field reference
 
-### GET /api/v1/skills/:slug/raw (PUBLIC, no auth)
+| Raw API field | Notes |
+|---|---|
+| `slug` | URL-safe identifier (replaces old UUID-based id) |
+| `name` | Program display name |
+| `url` | Product website |
+| `logo` | Logo image URL |
+| `category` | Category string |
+| `commission.type` | Commission type (cps_recurring, cps_one_time, cpl, etc.) |
+| `commission.rate` | Commission rate (e.g., "30%") |
+| `commission.currency` | Currency code |
+| `commission.duration` | Duration (e.g., "12 months", "lifetime") |
+| `cookieDays` | Cookie window in days |
+| `payout.minimum` | Minimum payout threshold |
+| `payout.frequency` | Payment frequency |
+| `stars` | Community star count |
+| `verified` | Whether the program is verified |
 
-Returns raw skill content as `text/plain`. This is the public install endpoint.
+## Normalized skill-facing fields
 
-## Method 2: Web Fetch (fallback, no auth needed)
+The CLI adapter (`tools/src/api.ts`) maps the raw camelCase fields above to the
+normalized snake_case model used by skills:
 
-Use this if the user doesn't have an API key or if the API returns errors.
+| Skill field | Source |
+|---|---|
+| `reward_value` | `commission.rate` |
+| `reward_type` | `commission.type` |
+| `cookie_days` | `cookieDays` |
+| `stars_count` | `stars` |
+| `reward_duration` | `commission.duration` |
 
-1. `web_search`: `site:list.affitor.com [user's category/keyword]`
-2. `web_fetch`: the relevant list.affitor.com URL
+Skills always consume normalized fields. Only update raw-API examples when the API contract changes.
+
+## Method 2: Web Fetch (fallback)
+
+Use this if the API returns errors or you want to browse programs.
+
+1. `web_search`: `site:openaffiliate.dev [user's category/keyword]`
+2. `web_fetch`: the relevant openaffiliate.dev URL
 3. Parse the page content to extract program data:
    - Program name
-   - Reward value and type (look for patterns like "30% recurring")
-   - Cookie days (look for "Xd" or "X day cookie")
-   - Stars count (star icon + number)
+   - Commission rate and type (look for patterns like "30% recurring")
+   - Cookie days
+   - Stars count
    - Description text
 
-Parsing notes:
-- Programs are sorted by trending score (engagement / age) by default
-- Each program card shows: name, reward info, cookie days, description, stars
-- Programs and Skills are separate tabs/sections
-- Program detail pages: `list.affitor.com/@[handle]/[slug]`
+Program pages: `openaffiliate.dev/programs/[slug]`
 
-## Rate Limits
+## Caching
 
-- Cache results within a conversation — don't re-fetch for the same query
-- If fetching a full page, extract only relevant programs
-- Prefer API when available (structured data, fewer tokens)
-- API rate limit: 60 requests/minute per key
+- Cache results within a conversation — do not re-fetch for the same query
+- Prefer the API (structured data, fewer tokens consumed)

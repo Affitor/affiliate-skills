@@ -26,7 +26,7 @@ The analytics feed back into research, creating a closed optimization loop.
 
 **Key features:**
 - 45 skills with typed I/O schemas
-- Real-time data from list.affitor.com API
+- Real-time data from openaffiliate.dev API (public, no key required)
 - Built-in FTC compliance checking
 - Works standalone or chained
 - MIT licensed

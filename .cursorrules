@@ -22,14 +22,18 @@ shared/
 ```
 
 ## Affitor API
-- Base URL: `https://list.affitor.com/api/v1`
-- Programs endpoint: `GET /programs`
-- Key fields per program:
-  - `reward_value` — commission amount or percentage
-  - `reward_type` — "cps_recurring" | "cps_one_time" | "cps_lifetime" | "cpl" | "cpc"
-  - `cookie_days` — attribution window in days
-  - `stars_count` — community star count (popularity signal)
-  - `slug`, `name`, `tags[]`, `url`, `description`
+- Base URL: `https://openaffiliate.dev/api`
+- Programs endpoint: `GET /programs?q=<text>&sort=<relevance|trending|new|top>&limit=<n>`
+- Single program: `GET /programs/<slug>`
+- Public, no API key or auth required
+- Raw API fields (camelCase, nested): `slug`, `name`, `url`, `logo`, `category`,
+  `commission.type`, `commission.rate`, `commission.duration`, `cookieDays`,
+  `payout.*`, `description`, `shortDescription`, `tags[]`, `stars`, `verified`
+- CLI-normalized skill-facing fields (used in skill outputs):
+  - `reward_value` — from commission.rate
+  - `reward_type` — from commission.type
+  - `cookie_days` — from cookieDays
+  - `stars_count` — from stars
 - Always fetch real data from the API. Never fabricate program details.
 
 ## Key Rules

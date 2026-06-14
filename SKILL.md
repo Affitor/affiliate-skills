@@ -2,7 +2,7 @@
 name: affiliate-check
 version: 1.0.0
 description: |
-  Live affiliate program data from list.affitor.com. Search programs, compare commissions,
+  Live affiliate program data from openaffiliate.dev. Search programs, compare commissions,
   check cookie days, find top performers. Use when researching affiliate programs,
   comparing options, or checking program details. Persistent daemon with cache — first call
   starts server (~2s), subsequent calls ~100ms.
@@ -13,7 +13,7 @@ allowed-tools:
 
 # affiliate-check: Live Affiliate Program Data
 
-Query affiliate program data from list.affitor.com in real-time. Persistent daemon
+Query affiliate program data from openaffiliate.dev in real-time. Persistent daemon
 with in-memory cache — first call auto-starts the server, every subsequent call is instant.
 
 ## SETUP (run this check BEFORE any affiliate-check command)
@@ -96,12 +96,7 @@ affiliate-check help                              Full help
 
 ## Environment
 
-```
-AFFITOR_API_KEY    Optional. API key from list.affitor.com
-                   Without: free tier (max 5 results per query)
-                   With: unlimited access
-                   Get one: list.affitor.com/settings → API Keys (free)
-```
+No environment variables required. The openaffiliate.dev API is fully public — no API key, no auth, no rate limits.
 
 ## Architecture
 

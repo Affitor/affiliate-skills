@@ -100,10 +100,10 @@ Before submitting, verify:
 
 ## After Merge
 
-Your skill will be automatically added to `registry.json` via CI and published to [list.affitor.com/skills](https://list.affitor.com/skills). You'll be credited as the author.
+Your skill will be automatically added to `registry.json` via CI. Skills are shared via the GitHub repo — anyone can install them with `npx skills add Affitor/affiliate-skills`. You'll be credited as the author.
 
 See [`spec/`](spec/) for the full skill format specification.
 
 ## Questions?
 
-Open an issue or reach out on [list.affitor.com](https://list.affitor.com).
+Open an issue on [GitHub](https://github.com/Affitor/affiliate-skills).

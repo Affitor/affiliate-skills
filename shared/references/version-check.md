@@ -31,13 +31,6 @@ The agent checks the latest version from GitHub:
 curl -s https://raw.githubusercontent.com/Affitor/affiliate-skills/main/VERSION
 ```
 
-Or via the API:
-
-```
-GET https://list.affitor.com/api/v1/skills/version
-→ { "version": "1.3.0", "released": "2026-04-10", "changelog_url": "..." }
-```
-
 ### 3. Agent Behavior
 
 **When to check:** At the START of any affiliate-skills session — when the agent first
@@ -95,7 +88,6 @@ When shipping a new version:
 3. Update `CHANGELOG.md` with what changed
 4. Tag the release: `git tag v1.3.0 && git push --tags`
 5. Create GitHub Release with changelog
-6. (Optional) Update `list.affitor.com/api/v1/skills/version` endpoint
 
 ---
 

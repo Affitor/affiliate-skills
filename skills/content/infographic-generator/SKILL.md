@@ -238,7 +238,7 @@ copy:
   body_items: string[]      # Data labels, descriptions, etc.
   cta: string               # Call-to-action text — "Link in bio" | "See comments for link"
   footer: string            # Brand name or @handle
-  source: string            # "Data: list.affitor.com" or source attribution
+  source: string            # "Data: openaffiliate.dev" or source attribution
 ```
 
 **Copy rules:**
@@ -337,7 +337,7 @@ If any check fails, fix before delivering.
 │     🏆 Winner: HeyGen           │
 │                                 │
 │  ───────────────────────────    │
-│  @yourhandle · list.affitor.com │
+│  @yourhandle · openaffiliate.dev │
 └─────────────────────────────────┘
 
 ### Data

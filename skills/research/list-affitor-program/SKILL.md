@@ -1,14 +1,14 @@
 ---
 name: list-affitor-program
 description: >
-  Research an affiliate program and create a verified listing for list.affitor.com.
+  Research an affiliate program and create a verified listing for openaffiliate.dev.
   Use this skill when the user asks anything about listing a program, adding an affiliate
   program to the directory, submitting a program to list, creating a listing, documenting
   an affiliate program, sharing an affiliate program, writing a program profile, posting
-  a program to list.affitor.com, or contributing a new program.
+  a program to openaffiliate.dev, or contributing a new program.
   Also trigger for: "list a program", "add affiliate program", "submit program to list",
   "create listing for X", "document affiliate program", "share affiliate program",
-  "write a listing", "post to list.affitor.com", "add X to the directory",
+  "write a listing", "post to openaffiliate.dev", "add X to the directory",
   "register an affiliate program", "publish affiliate program", "new program listing",
   "profile this affiliate program", "catalog this program".
 license: MIT
@@ -24,7 +24,7 @@ metadata:
 # Affiliate Program Lister
 
 Research an affiliate program from official sources and produce a verified, publish-ready
-listing for [list.affitor.com](https://list.affitor.com). Every number comes from the
+listing for [openaffiliate.dev](https://openaffiliate.dev). Every number comes from the
 program's official affiliate page, network page, or pricing page. No guessing.
 
 ## Stage
@@ -33,7 +33,7 @@ This skill belongs to Stage S1: Research
 
 ## When to Use
 
-- User wants to add an affiliate program to list.affitor.com
+- User wants to add an affiliate program to openaffiliate.dev
 - User wants to document a program's commission structure in a standard format
 - User found a program and wants to create a shareable profile for other affiliates
 - User is contributing to the community directory
@@ -171,13 +171,12 @@ Present the output in two clearly separated parts:
 
 ### Step 7: Optional API Submission
 
-If the user wants to submit the listing directly:
+If the user wants to submit the listing directly, note that openaffiliate.dev is a
+community-curated directory. Submissions are made via GitHub pull request to the
+Affitor/affiliate-skills repository. Format the listing fields below so the user
+can include them in a PR or share via the community.
 
 ```
-POST https://list.affitor.com/api/v1/programs
-Content-Type: application/json
-Authorization: Bearer <API_KEY>
-
 {
   "name": "...",
   "url": "...",
@@ -189,9 +188,6 @@ Authorization: Bearer <API_KEY>
   "tags": ["...", "..."]
 }
 ```
-
-If no API key is available, format the output so the user can copy-paste it into the
-list.affitor.com submission form.
 
 ### Step 8: Self-Validation
 
@@ -303,8 +299,8 @@ Payment: [method], [frequency], [minimum payout]
 
 ---
 
-**Ready to submit?** Copy the Listing Fields above into list.affitor.com, or use the API
-with your API key.
+**Ready to share?** Copy the Listing Fields above and submit via a GitHub PR to
+Affitor/affiliate-skills, or browse the directory at openaffiliate.dev.
 ```
 
 ## Error Handling
@@ -370,7 +366,7 @@ User: "Create a listing for this new AI tool I found — ToolXYZ"
 - `conversion-tracker` (S6) — top-performing programs worth listing for the community
 
 ### Feedback Loop
-- Community engagement on list.affitor.com (stars, comments) reveals which listing styles
+- Community engagement on openaffiliate.dev (stars, comments) reveals which listing styles
   and description formats drive the most affiliate signups. High-star listings become
   templates for future listings. Low-engagement listings get revised with better earning
   potential data and more specific audience targeting.
@@ -392,7 +388,7 @@ chain_metadata:
 Before marking this skill's output as complete:
 
 1. Every commission number traces to an official source URL
-2. The `reward_type` is a valid enum value from the list.affitor.com schema
+2. The `reward_type` is a valid enum value from the openaffiliate.dev schema
 3. Earning potential math is correct and uses conservative assumptions
 4. The description contains all required sections (Opening, Why Promote, Commission Table, Target Audiences, Earning Potential, Why It Converts, Honest Limitations)
 5. At least one real limitation is listed — no "this program is perfect" outputs
@@ -401,6 +397,6 @@ Before marking this skill's output as complete:
 
 ## References
 
-- `references/list-affitor-api.md` — API endpoints and authentication for list.affitor.com
+- `affiliate-program-search/references/list-affitor-api.md` — API endpoints for openaffiliate.dev (public, no auth)
 - `shared/references/affiliate-glossary.md` — reward_type definitions and field names
 - `shared/references/flywheel-connections.md` — master flywheel connection map

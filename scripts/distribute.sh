@@ -218,7 +218,7 @@ Technical details:
 - MIT licensed
 - Each skill works standalone or chains with others
 - Built-in FTC compliance checking
-- Data from list.affitor.com (community affiliate directory)
+- Data from openaffiliate.dev (open affiliate program directory)
 
 Happy to answer questions about the architecture or the agentskills.io standard.
 EOF
@@ -274,8 +274,8 @@ npx skills add Affitor/affiliate-skills
 Paste this into any AI:
 
 ```
-Search the Affitor affiliate directory for AI video tools.
-Use this API: GET https://list.affitor.com/api/v1/programs?q=AI+video&sort=top&limit=5
+Search the openaffiliate.dev directory for AI video tools.
+Use this API: GET https://openaffiliate.dev/api/programs?q=AI+video&sort=relevance&limit=5
 Show me the results in a table with: Name, Commission, Cookie Duration, Stars.
 Then recommend the best one and explain why.
 ```
@@ -284,14 +284,14 @@ Then recommend the best one and explain why.
 
 - **Standard:** agentskills.io (Anthropic, Linux Foundation AAIF)
 - **Compatibility:** Claude Code, ChatGPT, Gemini CLI, Cursor, Windsurf, OpenClaw
-- **Data source:** list.affitor.com REST API
+- **Data source:** openaffiliate.dev REST API (public, no auth required)
 - **License:** MIT
 
 ## Links
 
 - GitHub: https://github.com/Affitor/affiliate-skills
 - Install: `npx skills add Affitor/affiliate-skills`
-- Directory: https://list.affitor.com
+- Directory: https://openaffiliate.dev
 
 ---
 
@@ -347,7 +347,7 @@ That means it works everywhere:
 
 Paste this into any AI:
 
-"Search the Affitor directory for AI video tools. Use API: GET https://list.affitor.com/api/v1/programs?q=AI+video&sort=top&limit=5"
+"Search the openaffiliate.dev directory for AI video tools. Use API: GET https://openaffiliate.dev/api/programs?q=AI+video&sort=relevance&limit=5"
 
 7/ MIT licensed. Open source. Looking for contributors.
 
@@ -425,7 +425,7 @@ The analytics feed back into research, creating a closed optimization loop.
 
 **Key features:**
 - 45 skills with typed I/O schemas
-- Real-time data from list.affitor.com API
+- Real-time data from openaffiliate.dev API (public, no key required)
 - Built-in FTC compliance checking
 - Works standalone or chained
 - MIT licensed

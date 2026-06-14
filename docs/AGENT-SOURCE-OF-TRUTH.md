@@ -119,21 +119,26 @@ Stored results under `evals/results/*` are historical artifacts, not the canonic
 
 ---
 
-## 6) Data contract with list.affitor.com
+## 6) Data contract with openaffiliate.dev
 
 ## Canonical inside this repo
 1. `CLAUDE.md`
 2. `shared/references/sample-api-response.json` when used as reference/example
-3. actual skill files that consume list.affitor.com data
+3. actual skill files that consume openaffiliate.dev data
 
 ## Cross-repo dependency rule
 
-This repo depends on `list.affitor.com` field names and API shape.
-When field names differ between this repo and `affiliate-list` runtime/schema:
-- **`affiliate-list` wins for API/data contract truth**
-- `affiliate-skills` must be updated to match
+This repo depends on `openaffiliate.dev` API shape and field names.
+The API is public and requires no authentication or API key.
+Base URL: `https://openaffiliate.dev/api`
 
-Important current rule already present in `CLAUDE.md`:
+Raw API response shape (camelCase, nested):
+- `GET /api/programs?q=<text>&sort=<relevance|...>&limit=<n>` → `{ "programs": [...], "total": <n>, "filters": {...} }`
+- `GET /api/programs/<slug>` → program object directly
+
+Raw program fields: `slug`, `name`, `url`, `logo`, `category`, `commission.type`, `commission.rate`, `commission.currency`, `commission.duration`, `commission.conditions`, `cookieDays`, `payout.minimum`, `payout.currency`, `payout.frequency`, `payout.methods`, `description`, `shortDescription`, `tags`, `stars`, `verified`, `agentPrompt`
+
+The CLI adapter (`tools/src/api.ts`) normalizes these into skill-facing fields. Skill-level normalized fields stay as-is:
 - use `reward_value`, `reward_type`, `cookie_days`, `stars_count`, `tags[]`
 - not `commission_rate`, `upvotes`, `cookie_duration`
 
@@ -185,7 +190,7 @@ These areas are especially contract-sensitive:
 - `registry.json`
 - `tools/src/cli.ts`
 - `tools/src/server.ts`
-- any code touching list.affitor.com API assumptions
+- any code touching openaffiliate.dev API assumptions
 
 When touching these, read:
 1. relevant `SKILL.md`

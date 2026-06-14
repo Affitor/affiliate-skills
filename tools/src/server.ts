@@ -1,6 +1,6 @@
 /**
  * affiliate-check persistent daemon
- * Bun HTTP server that caches API responses from list.affitor.com
+ * Bun HTTP server that caches API responses from openaffiliate.dev
  * Auto-shuts down after 30 min idle. Pattern from gstack/browse.
  */
 
@@ -10,7 +10,6 @@ import {
   formatProgramCard,
   formatProgramTable,
   formatComparison,
-  formatFreeTierNotice,
   formatError,
   formatStatus,
 } from "./format";
@@ -105,11 +104,6 @@ async function handleRequest(req: Request): Promise<Response> {
         const response = await fetchPrograms(params, apiKey || undefined);
         programs = response.data;
         cache.set(key, programs);
-
-        if (response.tier === "free") {
-          const output = formatProgramTable(programs) + formatFreeTierNotice();
-          return new Response(output, { headers: { "Content-Type": "text/plain" } });
-        }
       } catch (err) {
         const msg = err instanceof Error ? err.message : String(err);
         return new Response(formatError(msg), {
@@ -137,11 +131,6 @@ async function handleRequest(req: Request): Promise<Response> {
         const response = await fetchPrograms(params, apiKey || undefined);
         programs = response.data;
         cache.set(key, programs);
-
-        if (response.tier === "free") {
-          const output = formatProgramTable(programs) + formatFreeTierNotice();
-          return new Response(output, { headers: { "Content-Type": "text/plain" } });
-        }
       } catch (err) {
         const msg = err instanceof Error ? err.message : String(err);
         return new Response(formatError(msg), {
@@ -281,7 +270,7 @@ async function main() {
   resetIdleTimer();
 
   console.log(`[affiliate-check] Server running on port ${port} (PID ${process.pid})`);
-  console.log(`[affiliate-check] API key: ${apiKey ? "configured" : "not set (free tier)"}`);
+  console.log(`[affiliate-check] Source: openaffiliate.dev (public API, no key required)`);
   console.log(`[affiliate-check] Auto-shutdown after 30 min idle`);
 
   // Handle signals

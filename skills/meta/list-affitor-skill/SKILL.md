@@ -1,9 +1,9 @@
 ---
 name: list-affitor-skill
 description: >
-  Turn a repeatable AI prompt or workflow into a structured, publish-ready skill for
-  list.affitor.com. Use this skill when the user wants to create a new skill, write a
-  SKILL.md, convert a prompt to a skill, publish a skill to the directory, or document
+  Turn a repeatable AI prompt or workflow into a structured, shareable skill for the
+  affiliate-skills GitHub repository. Use this skill when the user wants to create a new skill, write a
+  SKILL.md, convert a prompt to a skill, share a skill via the GitHub repo, or document
   an AI workflow.
   Also trigger for: "create a skill", "write a skill", "make this a skill",
   "turn this into a skill", "publish skill", "add skill to list", "write SKILL.md",
@@ -20,9 +20,10 @@ metadata:
 
 # List Affitor Skill
 
-Turn a repeatable AI prompt or workflow into a structured, publish-ready skill for
-[list.affitor.com](https://list.affitor.com). The output is a complete SKILL.md file
-that works in any AI agent — plus the listing fields to publish it on LIST.
+Turn a repeatable AI prompt or workflow into a structured, shareable skill for the
+[affiliate-skills GitHub repository](https://github.com/Affitor/affiliate-skills).
+The output is a complete SKILL.md file that works in any AI agent — shared via
+`npx skills add Affitor/affiliate-skills` so anyone can install it.
 
 ## Stage
 
@@ -31,7 +32,7 @@ This skill belongs to Stage S8: Meta
 ## When to Use
 
 - User has a prompt they keep reusing and wants to turn it into a shareable skill
-- User wants to create a new skill for the Affitor skills directory
+- User wants to create a new skill for the affiliate-skills repository
 - User wants to write a SKILL.md file in the standard format
 - User says "make this a skill" or "write a skill for X"
 - User wants to package an AI workflow so others can replicate it
@@ -148,9 +149,11 @@ A markdown code block showing the exact template with `[placeholder]` brackets. 
 **References**
 Links to supplementary reference files if applicable.
 
-### Step 4: Write the LIST Description
+### Step 4: Write the README Description
 
-Separately from the SKILL.md, write a community-facing description for the listing on list.affitor.com. This is what people see in the feed — it sells the skill, not documents it.
+Separately from the SKILL.md, write a community-facing description for the skill's
+README section (for GitHub and the affiliate-skills registry). This is what people
+see when browsing — it sells the skill, not documents it.
 
 Structure:
 1. **Opening** (2 sentences) — what the skill does, who it's for
@@ -169,7 +172,7 @@ This is NOT the SKILL.md content — it's a human-friendly summary for discovery
 Present two clearly separated outputs:
 
 1. **SKILL.md** — the full file, ready to save to `skills/{stage}/{slug}/SKILL.md`
-2. **LIST Submission** — listing fields + description for list.affitor.com
+2. **README Description** — community-facing description for the GitHub repo and registry
 
 ### Step 6: Self-Validation
 
@@ -195,7 +198,7 @@ Other skills consume these fields from conversation context:
   listing: {
     name: string             # "Comparison Post Writer"
     slug: string             # "comparison-post-writer"
-    description: string      # Community-facing description for list.affitor.com
+    description: string      # Community-facing description for GitHub README / registry
     content: string          # Full SKILL.md content (for the content field)
     category: string         # "content", "research", "seo", etc.
     level: string            # "beginner", "intermediate", "advanced"
@@ -303,10 +306,10 @@ chain_metadata YAML block
 - [reference files if applicable]
 ```
 
-### Output 2: LIST Submission Fields
+### Output 2: README / Registry Description
 
 ```
-## Listing Fields (for list.affitor.com)
+## Skill Info (for GitHub README and registry)
 
 | Field | Value |
 |-------|-------|
@@ -315,10 +318,11 @@ chain_metadata YAML block
 | Category | [category] |
 | Level | [level] |
 | Tags | [tag1, tag2, tag3] |
+| Install | npx skills add Affitor/affiliate-skills |
 
 ---
 
-## Description (paste into the description field on LIST)
+## Description (paste into README or PR description)
 
 [Community-facing description — see Step 4]
 ```
@@ -329,7 +333,7 @@ chain_metadata YAML block
 - **Prompt is too simple for a skill:** If the prompt is a single sentence with no variable inputs (e.g., "write me a joke"), tell the user this doesn't need to be a skill — it's already a prompt. Skills add value when there are variable inputs, structured outputs, and quality concerns.
 - **Prompt does too many things:** If the workflow has 10+ distinct steps covering different domains, suggest splitting into 2-3 focused skills that chain together via flywheel connections.
 - **No clear output format:** If the user can't describe what good output looks like, ask for 1-2 examples. Build the Output Format section from those examples.
-- **User wants to copy an existing skill:** Check if a similar skill already exists on list.affitor.com or in the affiliate-skills repo. If so, suggest improving the existing one rather than creating a duplicate.
+- **User wants to copy an existing skill:** Check if a similar skill already exists in the affiliate-skills repo. If so, suggest improving the existing one rather than creating a duplicate.
 
 ## Examples
 
@@ -368,18 +372,18 @@ Response: Ask clarifying questions — "What kind of Twitter threads? About a pr
 ## Revenue & Action Plan
 
 ### Expected Outcomes
-- **Revenue potential**: Published skills build your authority as an affiliate marketing expert. Each skill on list.affitor.com acts as a lead magnet — users discover your skill, star it, and follow your profile. Profile visibility → traffic to your affiliate content. Top skill creators report 500-2,000 monthly profile views from popular skills
-- **Benchmark**: Skills with 10+ stars get featured in recommendations and search results, driving compounding traffic. The first 5 stars are the hardest — after that, momentum takes over
-- **Key metric to track**: Stars + installs on list.affitor.com. Secondary: profile views and click-through to your other content
+- **Authority potential**: Published skills build your authority as an affiliate marketing expert. Each skill in the affiliate-skills repo acts as a lead magnet — users install it, star the repo, and discover your work. Top skill contributors see compounding GitHub traffic and community recognition
+- **Benchmark**: Skills used in real workflows get referenced, forked, and improved by the community. The first few installs are the hardest — after that, word-of-mouth takes over
+- **Key metric to track**: GitHub stars + installs via `npx skills add Affitor/affiliate-skills`. Secondary: community discussions, PRs, and mentions
 
 ### Do This Right Now (15 min)
-1. **Submit the skill to list.affitor.com** — use the LIST Submission fields from the output
+1. **Submit the skill via GitHub PR** — save SKILL.md to `skills/{stage}/{slug}/SKILL.md` and open a PR to Affitor/affiliate-skills
 2. **Share the skill** on 2-3 platforms (X, LinkedIn, Reddit r/ChatGPT) with a brief demo of what it does
 3. **Add the skill to your bio link page** — it's a portfolio piece that builds authority
-4. **Star your own skill** and ask 2-3 colleagues to try it and leave feedback
+4. **Ask 2-3 colleagues to try it** and give feedback via GitHub Issues or Discussions
 
 ### Track Your Results
-After 7 days: how many stars? After 30 days: how many installs? If stars are growing, create more skills in related areas to build a skill portfolio. Your skills become your brand — people trust affiliates who create useful tools.
+After 7 days: how many installs and GitHub stars? After 30 days: any community PRs or feedback? If engagement is growing, create more skills in related areas to build a skill portfolio. Your skills become your brand — people trust affiliates who create useful tools.
 
 > **Next step — copy-paste this prompt:**
 > "Find ways to improve my skill based on usage feedback" → runs `self-improver`
@@ -387,7 +391,7 @@ After 7 days: how many stars? After 30 days: how many installs? If stars are gro
 ## Flywheel Connections
 
 ### Feeds Into
-- `skill-finder` (S8) — newly created skills appear in the directory for discovery
+- `skill-finder` (S8) — newly created skills appear in the repo for discovery
 - `self-improver` (S8) — skill structure enables automated quality improvement
 - `compliance-checker` (S8) — validates skill outputs against FTC and platform rules
 - Any stage-specific skill — new skills expand the flywheel
@@ -395,10 +399,10 @@ After 7 days: how many stars? After 30 days: how many installs? If stars are gro
 ### Fed By
 - `list-affitor-program` (S1) — program listings inspire related skill ideas
 - `niche-opportunity-finder` (S1) — high-opportunity niches reveal skill gaps
-- Community requests on list.affitor.com — "I wish there was a skill for X"
+- Community requests via GitHub Issues — "I wish there was a skill for X"
 
 ### Feedback Loop
-- Skills with high star counts on list.affitor.com reveal which formats and structures
+- Skills with high install counts and GitHub stars reveal which formats and structures
   resonate most. Low-engagement skills get revised. The Quality Gate evolves based on
   which checks correlate with high-quality, high-engagement skill output.
 
@@ -423,7 +427,7 @@ Before marking this skill's output as complete:
 4. At least 2 examples show concrete input → decision → output excerpt
 5. Error handling addresses realistic failures (vague input, too simple, too complex)
 6. Quality gate items are objectively testable, not subjective ("good quality")
-7. The LIST description is distinct from the SKILL.md content — it's a human-friendly summary
+7. The README description is distinct from the SKILL.md content — it's a human-friendly summary
 8. Frontmatter `name` field matches the slug exactly
 
 ## References

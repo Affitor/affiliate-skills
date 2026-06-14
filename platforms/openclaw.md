@@ -9,7 +9,7 @@ Key files for framework integration:
 | File | Purpose |
 |---|---|
 | [`prompts/bootstrap.md`](../prompts/bootstrap.md) | System prompt — paste as agent system instruction |
-| [`API.md`](../API.md) | HTTP tool reference for `list.affitor.com/api/v1` |
+| [`API.md`](../API.md) | HTTP tool reference for `openaffiliate.dev/api` |
 | [`registry.json`](../registry.json) | Skill index — programmatically discover all 45 skills |
 | `skills/*/SKILL.md` | Per-skill workflow definitions with typed I/O schemas |
 | `skills/*/agents/openai.yaml` | OpenAI-compatible tool specs (5 skills have these) |
@@ -55,25 +55,23 @@ For frameworks with different tool spec formats (LangChain `Tool`, CrewAI tools)
 
 ## API Integration
 
-All live data skills call `list.affitor.com/api/v1`. Full reference in [`API.md`](../API.md).
+All live data skills call `openaffiliate.dev/api`. Full reference in [`API.md`](../API.md).
 
 ```python
-# Register an HTTP tool for the Affitor API
+# Register an HTTP tool for the OpenAffiliate API
 affiliate_search = {
     "name": "search_affiliate_programs",
-    "description": "Search the Affitor directory for affiliate programs",
+    "description": "Search the OpenAffiliate directory for affiliate programs",
     "parameters": {
         "q": {"type": "string", "description": "Search query"},
-        "reward_type": {"type": "string", "enum": ["cps_recurring", "cps_one_time", "cps_lifetime", "cpl", "cpc"]},
-        "min_cookie_days": {"type": "integer"},
-        "sort": {"type": "string", "enum": ["trending", "new", "top"]},
+        "sort": {"type": "string", "enum": ["relevance", "trending", "new", "top"]},
         "limit": {"type": "integer", "default": 10}
     },
-    "endpoint": "GET https://list.affitor.com/api/v1/programs"
+    "endpoint": "GET https://openaffiliate.dev/api/programs"
 }
 ```
 
-No API key required for free tier (max 5 results). Set `AFFITOR_API_KEY` env var for unlimited access.
+No API key required. The OpenAffiliate API is fully public with no authentication, no rate limits, and no tiers.
 
 ---
 

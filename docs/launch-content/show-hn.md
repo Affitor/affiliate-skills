@@ -19,6 +19,6 @@ Technical details:
 - MIT licensed
 - Each skill works standalone or chains with others
 - Built-in FTC compliance checking
-- Data from list.affitor.com (community affiliate directory)
+- Data from openaffiliate.dev (public API, no key required)
 
 Happy to answer questions about the architecture or the agentskills.io standard.
