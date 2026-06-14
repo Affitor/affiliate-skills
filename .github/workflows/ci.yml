@@ -27,4 +27,11 @@ jobs:
         run: bun run test:docs
 
       - name: Tool tests
-        run: bun test tools/test/
+        # Run tool unit tests when any exist; don't fail CI when there are none yet
+        # (bun test exits non-zero on an empty/missing path).
+        run: |
+          if [ -n "$(find tools -name '*.test.ts' -o -name '*.spec.ts' 2>/dev/null)" ]; then
+            bun test tools/
+          else
+            echo "No tool tests present yet — skipping"
+          fi
