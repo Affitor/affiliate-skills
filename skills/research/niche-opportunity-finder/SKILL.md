@@ -97,7 +97,7 @@ Verdict: 7.5+ = "High Opportunity" / 5.5-7.4 = "Worth Testing" / <5.5 = "Saturat
 ### Step 4: Validate Top 3 Niches on openaffiliate.dev
 
 For the top 3 niches, query `GET https://openaffiliate.dev/api/programs?q=[niche]`
-(see `affiliate-program-search/references/list-affitor-api.md`)
+(see `affiliate-program-search/references/openaffiliate-api.md`)
 to verify real programs exist with good commission structures:
 - At least 3 programs with `reward_value` 20%+ OR `reward_type` cps_recurring
 - At least one program with `cookie_days` >= 30
@@ -232,7 +232,7 @@ User: "I know a lot about Notion and productivity tools"
 
 ## References
 
-- `affiliate-program-search/references/list-affitor-api.md` — how to fetch programs from openaffiliate.dev
+- `affiliate-program-search/references/openaffiliate-api.md` — how to fetch programs from openaffiliate.dev
 - `shared/references/affiliate-glossary.md` — affiliate marketing terminology
 - `shared/references/ftc-compliance.md` — disclosure requirements
 - `shared/references/flywheel-connections.md` — master flywheel connection map

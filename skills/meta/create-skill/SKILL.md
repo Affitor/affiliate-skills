@@ -1,5 +1,5 @@
 ---
-name: list-affitor-skill
+name: create-skill
 description: >
   Turn a repeatable AI prompt or workflow into a structured, shareable skill for the
   affiliate-skills GitHub repository. Use this skill when the user wants to create a new skill, write a
@@ -397,7 +397,7 @@ After 7 days: how many installs and GitHub stars? After 30 days: any community P
 - Any stage-specific skill — new skills expand the flywheel
 
 ### Fed By
-- `list-affitor-program` (S1) — program listings inspire related skill ideas
+- `submit-program` (S1) — program listings inspire related skill ideas
 - `niche-opportunity-finder` (S1) — high-opportunity niches reveal skill gaps
 - Community requests via GitHub Issues — "I wish there was a skill for X"
 
@@ -408,7 +408,7 @@ After 7 days: how many installs and GitHub stars? After 30 days: any community P
 
 ```yaml
 chain_metadata:
-  skill_slug: "list-affitor-skill"
+  skill_slug: "create-skill"
   stage: "meta"
   timestamp: string
   suggested_next:

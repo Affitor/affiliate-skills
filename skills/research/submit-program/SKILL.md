@@ -1,5 +1,5 @@
 ---
-name: list-affitor-program
+name: submit-program
 description: >
   Research an affiliate program and create a verified listing for openaffiliate.dev.
   Use this skill when the user asks anything about listing a program, adding an affiliate
@@ -373,7 +373,7 @@ User: "Create a listing for this new AI tool I found — ToolXYZ"
 
 ```yaml
 chain_metadata:
-  skill_slug: "list-affitor-program"
+  skill_slug: "submit-program"
   stage: "research"
   timestamp: string
   suggested_next:
@@ -397,6 +397,6 @@ Before marking this skill's output as complete:
 
 ## References
 
-- `affiliate-program-search/references/list-affitor-api.md` — API endpoints for openaffiliate.dev (public, no auth)
+- `affiliate-program-search/references/openaffiliate-api.md` — API endpoints for openaffiliate.dev (public, no auth)
 - `shared/references/affiliate-glossary.md` — reward_type definitions and field names
 - `shared/references/flywheel-connections.md` — master flywheel connection map

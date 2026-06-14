@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from "fs";
+import { readFileSync } from "fs";
 import { join } from "path";
 
 let failed = 0;
@@ -29,18 +29,16 @@ for (const needle of ["registry.json", "skills/{stage}/{skill-name}/SKILL.md", "
   assert(`README mentions ${needle}`, readme.includes(needle), needle);
 }
 
-console.log("\n=== Test 3: cross-repo contract check against local affiliate-list (if present) ===");
-const listRoot = join(root, "..", "affiliate-list");
-if (existsSync(listRoot)) {
-  const listReadme = readFileSync(join(listRoot, "README.md"), "utf8");
-  const listTypes = readFileSync(join(listRoot, "src/lib/supabase/types.ts"), "utf8");
-  for (const needle of ["reward_value", "reward_type", "cookie_days", "stars_count"]) {
-    assert(`affiliate-list README mentions ${needle}`, listReadme.includes(needle), needle);
-    assert(`affiliate-list types mention ${needle}`, listTypes.includes(needle), needle);
-  }
-  assert("affiliate-list README uses afl_ prefix", listReadme.includes("afl_"));
-} else {
-  console.log("ℹ️ sibling affiliate-list repo not found — skipping cross-repo local check");
+console.log("\n=== Test 3: data-source adapter contract (tools/src/api.ts → openaffiliate.dev) ===");
+const apiClient = read("tools/src/api.ts");
+assert("api.ts points at the openaffiliate.dev API", apiClient.includes("openaffiliate.dev/api"));
+assert("api.ts is NOT pointing at the retired list.affitor.com", !apiClient.includes("list.affitor.com"));
+// The adapter must map openaffiliate's raw camelCase/nested shape into the normalized skill fields.
+for (const raw of ["commission", "cookieDays", "stars"]) {
+  assert(`api.ts reads raw openaffiliate field \`${raw}\``, apiClient.includes(raw), raw);
+}
+for (const norm of ["reward_value", "reward_type", "cookie_days", "stars_count"]) {
+  assert(`api.ts produces normalized field \`${norm}\``, apiClient.includes(norm), norm);
 }
 
 if (failed > 0) {

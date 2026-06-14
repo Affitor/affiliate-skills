@@ -304,7 +304,7 @@ User: "I'm entering the email marketing niche, help me spy on competitors"
 
 ## References
 
-- `affiliate-program-search/references/list-affitor-api.md` — validate found programs on openaffiliate.dev
+- `affiliate-program-search/references/openaffiliate-api.md` — validate found programs on openaffiliate.dev
 - `shared/references/affiliate-glossary.md` — affiliate link pattern reference
 - `shared/references/ftc-compliance.md` — understanding competitor disclosures
 - `shared/references/flywheel-connections.md` — master flywheel connection map

@@ -62,7 +62,7 @@ If user says "just find me something good" → default to: AI/SaaS tools, recurr
 
 ### Step 2: Search openaffiliate.dev
 
-See `references/list-affitor-api.md` for integration methods.
+See `references/openaffiliate-api.md` for integration methods.
 
 Two methods available:
 - **API (preferred):** `GET https://openaffiliate.dev/api/programs?q=<term>` — public, no auth needed, structured data
@@ -163,7 +163,7 @@ Other skills (viral-post-writer, affiliate-blog-builder, etc.) consume these fie
 
 ## Error Handling
 
-- **API unavailable:** Fall back to web_fetch method (see `references/list-affitor-api.md` Method 2)
+- **API unavailable:** Fall back to web_fetch method (see `references/openaffiliate-api.md` Method 2)
 - **No programs match criteria:** Broaden search (remove strictest filter first), explain to user what was relaxed
 - **Stale data (program updated_at > 6 months):** Flag with "Data may be outdated, verify on product website"
 - **User gives no criteria:** Use defaults (AI/SaaS, recurring, 20%+, content creator audience)
@@ -194,7 +194,7 @@ User: "I'm a beginner, what should I promote first?"
 ## References
 
 - `references/scoring-criteria.md` — the 5-dimension scoring framework with rubrics
-- `references/list-affitor-api.md` — how to fetch data from openaffiliate.dev (API + fallback)
+- `references/openaffiliate-api.md` — how to fetch data from openaffiliate.dev (API + fallback)
 - `references/platform-rules.md` — platform-specific considerations when recommending programs
 - `shared/references/flywheel-connections.md` — master flywheel connection map
 

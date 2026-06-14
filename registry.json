@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-06-14T01:43:59.900Z",
+  "generated_at": "2026-06-14T01:56:00.579Z",
   "stages": {
     "research": {
       "label": "Research & Discovery",
@@ -99,19 +99,6 @@
       "author": "Affitor"
     },
     {
-      "name": "list-affitor-program",
-      "slug": "list-affitor-program",
-      "stage": "research",
-      "version": "1.0.0",
-      "description": "> Research an affiliate program and create a verified listing for openaffiliate.dev. Use this skill when the user asks anything about listing a program, adding an affiliate program to the directory, submitting a program to list, creating a listing, documenting an affiliate program, sharing an affiliate program, writing a program profile, posting a program to openaffiliate.dev, or contributing a new program. Also trigger for: \"list a program\", \"add affiliate program\", \"submit program to list\", \"create listing for X\", \"document affiliate program\", \"share affiliate program\", \"write a listing\", \"post to openaffiliate.dev\", \"add X to the directory\", \"register an affiliate program\", \"publish affiliate program\", \"new program listing\", \"profile this affiliate program\", \"catalog this program\".",
-      "path": "skills/research/list-affitor-program",
-      "agent_compatible": true,
-      "tools": [
-        "web_search"
-      ],
-      "author": "Affitor"
-    },
-    {
       "name": "monopoly-niche-finder",
       "slug": "monopoly-niche-finder",
       "stage": "research",
@@ -144,6 +131,19 @@
       "version": "1.0.0",
       "description": "> Score product remarkability 1-10 to decide if it's worth promoting. Seth Godin's Purple Cow test. Triggers on: \"is this product worth promoting\", \"should I promote\", \"product audit\", \"purple cow\", \"remarkable product\", \"is it remarkable\", \"rate this product\", \"product quality check\", \"worth my reputation\", \"product evaluation\", \"would I recommend without commission\", \"product remarkability score\", \"evaluate this affiliate product\", \"quality gate for promotion\".",
       "path": "skills/research/purple-cow-audit",
+      "agent_compatible": true,
+      "tools": [
+        "web_search"
+      ],
+      "author": "Affitor"
+    },
+    {
+      "name": "submit-program",
+      "slug": "submit-program",
+      "stage": "research",
+      "version": "1.0.0",
+      "description": "> Research an affiliate program and create a verified listing for openaffiliate.dev. Use this skill when the user asks anything about listing a program, adding an affiliate program to the directory, submitting a program to list, creating a listing, documenting an affiliate program, sharing an affiliate program, writing a program profile, posting a program to openaffiliate.dev, or contributing a new program. Also trigger for: \"list a program\", \"add affiliate program\", \"submit program to list\", \"create listing for X\", \"document affiliate program\", \"share affiliate program\", \"write a listing\", \"post to openaffiliate.dev\", \"add X to the directory\", \"register an affiliate program\", \"publish affiliate program\", \"new program listing\", \"profile this affiliate program\", \"catalog this program\".",
+      "path": "skills/research/submit-program",
       "agent_compatible": true,
       "tools": [
         "web_search"
@@ -647,6 +647,20 @@
       "author": "Affitor"
     },
     {
+      "name": "create-skill",
+      "slug": "create-skill",
+      "stage": "meta",
+      "version": "1.0.0",
+      "description": "> Turn a repeatable AI prompt or workflow into a structured, shareable skill for the affiliate-skills GitHub repository. Use this skill when the user wants to create a new skill, write a SKILL.md, convert a prompt to a skill, share a skill via the GitHub repo, or document an AI workflow. Also trigger for: \"create a skill\", \"write a skill\", \"make this a skill\", \"turn this into a skill\", \"publish skill\", \"add skill to list\", \"write SKILL.md\", \"skill from prompt\", \"document this workflow\", \"package this as a skill\".",
+      "path": "skills/meta/create-skill",
+      "agent_compatible": true,
+      "tools": [
+        "web_fetch",
+        "web_search"
+      ],
+      "author": "Affitor"
+    },
+    {
       "name": "funnel-planner",
       "slug": "funnel-planner",
       "stage": "meta",
@@ -655,20 +669,6 @@
       "path": "skills/meta/funnel-planner",
       "agent_compatible": true,
       "tools": [],
-      "author": "Affitor"
-    },
-    {
-      "name": "list-affitor-skill",
-      "slug": "list-affitor-skill",
-      "stage": "meta",
-      "version": "1.0.0",
-      "description": "> Turn a repeatable AI prompt or workflow into a structured, shareable skill for the affiliate-skills GitHub repository. Use this skill when the user wants to create a new skill, write a SKILL.md, convert a prompt to a skill, share a skill via the GitHub repo, or document an AI workflow. Also trigger for: \"create a skill\", \"write a skill\", \"make this a skill\", \"turn this into a skill\", \"publish skill\", \"add skill to list\", \"write SKILL.md\", \"skill from prompt\", \"document this workflow\", \"package this as a skill\".",
-      "path": "skills/meta/list-affitor-skill",
-      "agent_compatible": true,
-      "tools": [
-        "web_fetch",
-        "web_search"
-      ],
       "author": "Affitor"
     },
     {

@@ -66,7 +66,7 @@ This skill belongs to Stage S1: Research
 
 ### Step 1: Gather Program Details
 
-If program details are missing, pull from openaffiliate.dev (see `references/list-affitor-api.md` in affiliate-program-search).
+If program details are missing, pull from openaffiliate.dev (see `references/openaffiliate-api.md` in affiliate-program-search).
 
 Key fields to extract: `reward_value`, `reward_type`, `cookie_days`.
 
@@ -303,7 +303,7 @@ User: "I want to make $1,000/month from affiliate marketing, how long will it ta
 
 ## References
 
-- `affiliate-program-search/references/list-affitor-api.md` — fetch live program data from openaffiliate.dev
+- `affiliate-program-search/references/openaffiliate-api.md` — fetch live program data from openaffiliate.dev
 - `shared/references/affiliate-glossary.md` — reward_type definitions
 - `shared/references/flywheel-connections.md` — master flywheel connection map
 
