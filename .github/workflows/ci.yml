@@ -20,18 +20,5 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      - name: Registry invariants
-        run: bun run test:registry
-
-      - name: Docs and list contract checks
-        run: bun run test:docs
-
-      - name: Tool tests
-        # Run tool unit tests when any exist; don't fail CI when there are none yet
-        # (bun test exits non-zero on an empty/missing path).
-        run: |
-          if [ -n "$(find tools -name '*.test.ts' -o -name '*.spec.ts' 2>/dev/null)" ]; then
-            bun test tools/
-          else
-            echo "No tool tests present yet — skipping"
-          fi
+      - name: Full test suite
+        run: bun run test
