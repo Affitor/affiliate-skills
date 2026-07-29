@@ -5,9 +5,10 @@
   "scripts": {
     "build": "bun build --compile tools/src/cli.ts --outfile tools/dist/affiliate-check",
     "dev": "bun run tools/src/cli.ts",
-    "test": "bun test tools/test/",
+    "test": "bun run test:registry && bun run test:docs && bun run test:tools",
     "test:registry": "bun run tests/test-registry-invariants.ts",
-    "test:docs": "bun run tests/test-doc-contracts.ts"
+    "test:docs": "bun run tests/test-doc-contracts.ts",
+    "test:tools": "if find tools -type f \\( -name '*.test.ts' -o -name '*.spec.ts' \\) -print -quit | grep -q .; then bun test tools/; else echo 'No tool tests present yet - skipping'; fi"
   },
   "license": "MIT",
   "devDependencies": {}

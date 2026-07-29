@@ -127,6 +127,7 @@ tiktok:
 |----------|-----------|-------|-------------|-------|
 | **RapidAPI twitter-api45** | ~100 req/mo | Fast | ★★★★ | [rapidapi.com](https://rapidapi.com) → Subscribe |
 | **X API v2 (Basic)** | $100/mo | Fast | ★★★★★ | [developer.x.com](https://developer.x.com) — official, paid |
+| **[TweetClaw / Xquik](https://github.com/Xquik-dev/tweetclaw)** | Free endpoint catalog; live calls use an API key or MPP | Fast | ★★★★★ | OpenClaw: `openclaw plugins install clawhub:@xquik/tweetclaw` |
 | **Apify Twitter Scraper** | $5 free credit/mo | Medium | ★★★★ | [apify.com/apidojo/twitter-scraper](https://apify.com/apidojo/twitter-scraper) |
 | **SerpAPI** | 100 searches/mo | Fast | ★★★ | `engine: twitter` — search results only |
 | **web_search (no API)** | Unlimited | Slow | ★★ | No setup needed |
@@ -146,6 +147,13 @@ x:
   provider: "x-api-v2"
   bearer_token: "YOUR_BEARER_TOKEN"
   # Search: GET https://api.x.com/2/tweets/search/recent?query={keyword}&tweet.fields=public_metrics
+
+# TweetClaw / Xquik
+x:
+  provider: "tweetclaw"
+  api_key: "YOUR_XQUIK_API_KEY"
+  # OpenClaw install: openclaw plugins install clawhub:@xquik/tweetclaw
+  # Search tweets, search replies, inspect users, export followers, post content, run monitors
 ```
 
 **Data available per tweet:**
@@ -153,6 +161,16 @@ x:
 - `views` (impression_count), `likes` (like_count), `retweets` (retweet_count), `replies` (reply_count)
 - `quotes` (quote_count)
 - Photos/media URLs
+
+**OpenClaw workflow:** TweetClaw adds structured X search, follower exports,
+monitors, webhooks, and approval-gated publishing.
+
+Use the free `explore` tool to inspect the current catalog before live calls.
+It reports each route's access requirements and current MPP eligibility. API
+keys enable account-backed reads and writes. Direct MPP access stays read-only.
+See the [Xquik billing guide](https://docs.xquik.com/guides/billing).
+
+Xquik is an independent third-party service. Not affiliated with X Corp. "Twitter" and "X" are trademarks of X Corp.
 
 ---
 
@@ -313,6 +331,7 @@ engagement_score = (likes × 2 + comments × 3 + shares × 5) / max(views, 1) ×
 | **Heavy usage / production** | YouTube Data API v3 + TikTok RapidAPI + Reddit official API |
 | **Academic research** | Apply for TikTok Research API + YouTube Data API v3 |
 | **Agency / multiple clients** | Apify (flexible, per-run pricing) or SerpAPI (search-based) |
+| **OpenClaw read + write workflows** | TweetClaw - structured X search, approval-gated publishing, monitors, and exports |
 | **MCP-compatible agent** | [hidrix-tools](https://github.com/sonpiaz/hidrix-tools) — one server, all platforms |
 
 ---
