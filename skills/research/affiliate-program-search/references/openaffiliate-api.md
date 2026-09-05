@@ -24,7 +24,7 @@ limit=30          Results per page
 
 Example request:
 ```
-GET https://openaffiliate.dev/api/programs?q=ai+video&sort=relevance&limit=10
+GET https://openaffiliate.dev/api/programs?q=ai+video&sort=relevance&limit=10&utm_source=affiliate-skills
 ```
 
 Response format:
@@ -72,7 +72,7 @@ Returns a single program by its slug. No auth required.
 
 Example:
 ```
-GET https://openaffiliate.dev/api/programs/heygen
+GET https://openaffiliate.dev/api/programs/heygen?utm_source=affiliate-skills
 ```
 
 Returns the program object directly (same shape as a single item in `programs[]` above).

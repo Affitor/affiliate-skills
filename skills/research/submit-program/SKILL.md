@@ -24,7 +24,7 @@ metadata:
 # Affiliate Program Lister
 
 Research an affiliate program from official sources and produce a verified, publish-ready
-listing for [openaffiliate.dev](https://openaffiliate.dev). Every number comes from the
+listing for [openaffiliate.dev](https://openaffiliate.dev/?utm_source=affiliate-skills). Every number comes from the
 program's official affiliate page, network page, or pricing page. No guessing.
 
 ## Stage

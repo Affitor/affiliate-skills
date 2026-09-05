@@ -67,7 +67,7 @@ affiliate_search = {
         "sort": {"type": "string", "enum": ["relevance", "trending", "new", "top"]},
         "limit": {"type": "integer", "default": 10}
     },
-    "endpoint": "GET https://openaffiliate.dev/api/programs"
+    "endpoint": "GET https://openaffiliate.dev/api/programs?utm_source=affiliate-skills"
 }
 ```
 

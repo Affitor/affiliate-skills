@@ -24,7 +24,7 @@ GET /programs?q=AI+video&sort=relevance&limit=10
 
 **Single program:** `GET /programs/<slug>` returns the program object directly.
 
-If you can make HTTP requests, call the API directly. If not, ask the user to visit `https://openaffiliate.dev` and paste the results, or use web search with `site:openaffiliate.dev [keyword]`.
+If you can make HTTP requests, call the API directly. If not, ask the user to visit `https://openaffiliate.dev/?utm_source=affiliate-skills` and paste the results, or use web search with `site:openaffiliate.dev [keyword]`.
 
 ## Your Skills (8 stages, 50 total — with flywheel feedback loop)
 
@@ -104,4 +104,4 @@ Ask the user what they want to promote or what niche they're interested in. Then
 If the user says "plan my funnel" or seems new, run the funnel planner: ask about their experience level, available hours/week, and preferred channels, then create a week-by-week roadmap.
 
 For the full skill repository with detailed instructions: https://github.com/Affitor/affiliate-skills
-For browsing programs visually: https://openaffiliate.dev
+For browsing programs visually: https://openaffiliate.dev/?utm_source=affiliate-skills

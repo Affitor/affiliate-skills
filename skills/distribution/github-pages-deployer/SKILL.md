@@ -207,7 +207,7 @@ Affiliate landing page hosted on GitHub Pages.
 Automatic via GitHub Actions — push to `main` triggers a deploy.
 
 ## Powered By
-[Affitor](https://affitor.com)
+[Affitor](https://affitor.com/?utm_source=affiliate-skills)
 ```
 
 ### Step 7: Output the Complete Setup
