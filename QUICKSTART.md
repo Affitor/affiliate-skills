@@ -120,7 +120,7 @@ Want to try before you commit? Paste this into any AI right now:
 
 ```
 Search the Affitor affiliate directory for AI video tools.
-Use this API: GET https://openaffiliate.dev/api/programs?q=AI+video&sort=relevance&limit=5
+Use this API: GET https://openaffiliate.dev/api/programs?q=AI+video&sort=relevance&limit=5&utm_source=affiliate-skills
 Show me the results in a table with: Name, Reward Value, Cookie Days, Stars.
 Then recommend the best one and explain why.
 ```
@@ -131,7 +131,7 @@ No API key needed. The API is fully public and open.
 
 ## Next Steps
 
-- Browse programs: [openaffiliate.dev](https://openaffiliate.dev)
+- Browse programs: [openaffiliate.dev](https://openaffiliate.dev/?utm_source=affiliate-skills)
 - Full skill reference: [README.md](README.md)
 - API documentation: [API.md](API.md)
 - Contribute a skill: [CONTRIBUTING.md](CONTRIBUTING.md)

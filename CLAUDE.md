@@ -52,7 +52,7 @@ When executing skills, treat data sources with appropriate trust:
 
 ## Data source
 
-- Primary: openaffiliate.dev API (`GET https://openaffiliate.dev/api/programs` — public, no auth required)
+- Primary: openaffiliate.dev API (`GET https://openaffiliate.dev/api/programs?utm_source=affiliate-skills` — public, no auth required)
   - List: `GET /api/programs?q=<text>&sort=<relevance|...>&limit=<n>` → `{ "programs": [...], "total": <n> }`
   - Single: `GET /api/programs/<slug>` → program object directly
 - Fallback: `web_fetch` / `web_search` on openaffiliate.dev pages

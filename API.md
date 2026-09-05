@@ -32,7 +32,7 @@ List and search published affiliate programs.
 Example — search for AI tools sorted by top:
 
 ```
-GET https://openaffiliate.dev/api/programs?q=AI&sort=top&limit=10
+GET https://openaffiliate.dev/api/programs?q=AI&sort=top&limit=10&utm_source=affiliate-skills
 ```
 
 #### Response
@@ -115,7 +115,7 @@ GET https://openaffiliate.dev/api/programs?q=AI&sort=top&limit=10
 Retrieve a single program by slug. Returns the program object directly (no wrapper key).
 
 ```
-GET https://openaffiliate.dev/api/programs/heygen
+GET https://openaffiliate.dev/api/programs/heygen?utm_source=affiliate-skills
 ```
 
 #### Response
@@ -149,13 +149,13 @@ Returns `404` if no program is found with the given slug.
 **Search programs:**
 
 ```bash
-curl "https://openaffiliate.dev/api/programs?q=AI+video&sort=top&limit=10"
+curl "https://openaffiliate.dev/api/programs?q=AI+video&sort=top&limit=10&utm_source=affiliate-skills"
 ```
 
 **Get a single program by slug:**
 
 ```bash
-curl "https://openaffiliate.dev/api/programs/heygen"
+curl "https://openaffiliate.dev/api/programs/heygen?utm_source=affiliate-skills"
 ```
 
 ---
@@ -166,7 +166,7 @@ curl "https://openaffiliate.dev/api/programs/heygen"
 
 ```js
 async function searchPrograms(query, options = {}) {
-  const url = new URL("https://openaffiliate.dev/api/programs");
+  const url = new URL("https://openaffiliate.dev/api/programs?utm_source=affiliate-skills");
 
   if (query) url.searchParams.set("q", query);
   if (options.sort) url.searchParams.set("sort", options.sort);
@@ -190,7 +190,7 @@ for (const program of result.programs) {
 
 ```js
 async function getProgram(slug) {
-  const res = await fetch(`https://openaffiliate.dev/api/programs/${slug}`, {
+  const res = await fetch(`https://openaffiliate.dev/api/programs/${slug}?utm_source=affiliate-skills`, {
     headers: { "Accept": "application/json" },
   });
   if (res.status === 404) return null;
@@ -216,6 +216,6 @@ If the API is unavailable, program data can be found on openaffiliate.dev pages 
    - Stars: star icon followed by a number
    - Description: paragraph text below the program name
 
-**Program detail page format:** `https://openaffiliate.dev/programs/[slug]`
+**Program detail page format:** `https://openaffiliate.dev/programs/[slug]?utm_source=affiliate-skills`
 
-Example: `https://openaffiliate.dev/programs/heygen`
+Example: `https://openaffiliate.dev/programs/heygen?utm_source=affiliate-skills`

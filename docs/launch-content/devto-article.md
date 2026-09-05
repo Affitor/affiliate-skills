@@ -48,7 +48,7 @@ Paste this into any AI:
 
 ```
 Search the Affitor affiliate directory for AI video tools.
-Use this API: GET https://openaffiliate.dev/api/programs?q=AI+video&sort=top&limit=5
+Use this API: GET https://openaffiliate.dev/api/programs?q=AI+video&sort=top&limit=5&utm_source=affiliate-skills
 Show me the results in a table with: Name, Commission, Cookie Duration, Stars.
 Then recommend the best one and explain why.
 ```
@@ -64,7 +64,7 @@ Then recommend the best one and explain why.
 
 - GitHub: https://github.com/Affitor/affiliate-skills
 - Install: `npx skills add Affitor/affiliate-skills`
-- Directory: https://openaffiliate.dev
+- Directory: https://openaffiliate.dev/?utm_source=affiliate-skills
 
 ---
 

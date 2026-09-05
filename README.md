@@ -41,7 +41,7 @@ Paste this into any AI:
 
 ```
 Search the Affitor affiliate directory for AI video tools.
-Use this API: GET https://openaffiliate.dev/api/programs?q=AI+video&sort=relevance&limit=5
+Use this API: GET https://openaffiliate.dev/api/programs?q=AI+video&sort=relevance&limit=5&utm_source=affiliate-skills
 Show me the results in a table with: Name, Reward Value, Cookie Days, Stars.
 Then recommend the best one and explain why.
 ```
@@ -429,4 +429,4 @@ MIT
 
 ---
 
-Built by [Affitor](https://affitor.com). Program directory: [openaffiliate.dev](https://openaffiliate.dev)
+Built by [Affitor](https://affitor.com/?utm_source=affiliate-skills). Program directory: [openaffiliate.dev](https://openaffiliate.dev/?utm_source=affiliate-skills)

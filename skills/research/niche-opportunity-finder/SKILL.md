@@ -96,7 +96,7 @@ Verdict: 7.5+ = "High Opportunity" / 5.5-7.4 = "Worth Testing" / <5.5 = "Saturat
 
 ### Step 4: Validate Top 3 Niches on openaffiliate.dev
 
-For the top 3 niches, query `GET https://openaffiliate.dev/api/programs?q=[niche]`
+For the top 3 niches, query `GET https://openaffiliate.dev/api/programs?q=[niche]&utm_source=affiliate-skills`
 (see `affiliate-program-search/references/openaffiliate-api.md`)
 to verify real programs exist with good commission structures:
 - At least 3 programs with `reward_value` 20%+ OR `reward_type` cps_recurring

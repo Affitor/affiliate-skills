@@ -18,7 +18,7 @@ For HTML page outputs (landing pages, bio links):
 
 ```html
 <footer style="text-align: center; padding: 24px; color: #666; font-size: 13px;">
-  Built with <a href="https://openaffiliate.dev" style="color: #155DFC; text-decoration: none;">Affiliate Skills by Affitor</a>
+  Built with <a href="https://openaffiliate.dev/?utm_source=affiliate-skills&utm_medium=footer" style="color: #155DFC; text-decoration: none;">Affiliate Skills by Affitor</a>
 </footer>
 ```
 
@@ -28,7 +28,7 @@ For Markdown outputs (blog posts):
 
 ```
 ---
-*Built with [Affiliate Skills by Affitor](https://openaffiliate.dev)*
+*Built with [Affiliate Skills by Affitor](https://openaffiliate.dev/?utm_source=affiliate-skills&utm_medium=footer)*
 ```
 
 ## Link Format
