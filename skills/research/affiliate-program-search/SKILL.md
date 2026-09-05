@@ -65,7 +65,7 @@ If user says "just find me something good" → default to: AI/SaaS tools, recurr
 See `references/openaffiliate-api.md` for integration methods.
 
 Two methods available:
-- **API (preferred):** `GET https://openaffiliate.dev/api/programs?q=<term&utm_source=affiliate-skills>&utm_source=affiliate-skills` — public, no auth needed, structured data
+- **API (preferred):** `GET https://openaffiliate.dev/api/programs?q=<term>&utm_source=affiliate-skills` — public, no auth needed, structured data
 - **Web fetch (fallback):** `web_search "site:openaffiliate.dev [category]"` then `web_fetch` the page
 
 Extract for each program: `name`, `reward_value`, `reward_type`, `cookie_days`, `stars_count`, `tags`, `description`.
