@@ -4,3 +4,4 @@ evals/results/
 *.log
 .env
 .env.local
+.claude/projects/
