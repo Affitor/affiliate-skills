@@ -11,6 +11,8 @@
  */
 
 const API_BASE = "https://openaffiliate.dev/api";
+const REQUEST_TIMEOUT_MS = 10_000;
+const MAX_RESPONSE_BYTES = 5 * 1024 * 1024;
 
 export interface Program {
   id: string;
@@ -126,6 +128,44 @@ function applyClientFilters(programs: Program[], params: SearchParams): Program[
   return out;
 }
 
+async function request(url: string, headers: Record<string, string>): Promise<Response> {
+  return fetch(url, {
+    headers,
+    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+  });
+}
+
+async function readLimitedText(response: Response): Promise<string> {
+  const contentLength = Number(response.headers.get("content-length"));
+  if (Number.isFinite(contentLength) && contentLength > MAX_RESPONSE_BYTES) {
+    await response.body?.cancel();
+    throw new Error("API response exceeds 5 MB");
+  }
+  if (!response.body) return "";
+
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let bytes = 0;
+  let text = "";
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    bytes += value.byteLength;
+    if (bytes > MAX_RESPONSE_BYTES) {
+      await reader.cancel();
+      throw new Error("API response exceeds 5 MB");
+    }
+    text += decoder.decode(value, { stream: true });
+  }
+
+  return text + decoder.decode();
+}
+
+async function readJson<T>(response: Response): Promise<T> {
+  return JSON.parse(await readLimitedText(response)) as T;
+}
+
 export async function fetchPrograms(
   params: SearchParams,
   _apiKey?: string
@@ -145,13 +185,13 @@ export async function fetchPrograms(
     "User-Agent": "affiliate-check/1.0",
   };
 
-  const response = await fetch(url.toString(), { headers });
+  const response = await request(url.toString(), headers);
   if (!response.ok) {
-    const body = await response.text();
+    const body = await readLimitedText(response);
     throw new Error(`API error (${response.status}): ${body}`);
   }
 
-  const json = (await response.json()) as { programs?: OAProgram[]; total?: number };
+  const json = await readJson<{ programs?: OAProgram[]; total?: number }>(response);
   let data = (json.programs ?? []).map(adapt);
 
   if (hasClientFilter) {
@@ -172,12 +212,15 @@ export async function fetchProgram(
     "User-Agent": "affiliate-check/1.0",
   };
 
-  const response = await fetch(`${API_BASE}/programs/${encodeURIComponent(slug)}`, { headers });
+  const response = await request(
+    `${API_BASE}/programs/${encodeURIComponent(slug)}`,
+    headers,
+  );
   if (!response.ok) {
     if (response.status === 404) return null;
     throw new Error(`API error (${response.status})`);
   }
 
-  const p = (await response.json()) as OAProgram;
+  const p = await readJson<OAProgram>(response);
   return adapt(p);
 }
