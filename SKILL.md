@@ -6,6 +6,8 @@ description: |
   check cookie days, find top performers. Use when researching affiliate programs,
   comparing options, or checking program details. Persistent daemon with cache — first call
   starts server (~2s), subsequent calls ~100ms.
+metadata:
+  internal: true
 allowed-tools:
   - Bash
   - Read
