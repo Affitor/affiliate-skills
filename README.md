@@ -234,6 +234,7 @@ Find programs, scout trending content, analyze traffic, rank angles.
 | Skill | Description |
 |-------|-------------|
 | [affiliate-program-search](skills/research/affiliate-program-search/) | Research and score programs from openaffiliate.dev |
+| [find-and-verify-affiliate-program](skills/research/find-and-verify-affiliate-program/) | Find programs on openaffiliate.dev, confirm each term on the brand's own page with a quote and URL |
 | [niche-opportunity-finder](skills/research/niche-opportunity-finder/) | Find underserved niches with high potential |
 | [competitor-spy](skills/research/competitor-spy/) | Analyze competitor affiliate strategies + engagement |
 | [commission-calculator](skills/research/commission-calculator/) | Calculate and compare commission structures |

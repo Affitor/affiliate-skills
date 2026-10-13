@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-09-05T17:26:42.626Z",
+  "generated_at": "2026-10-13T03:56:04.226Z",
   "stages": {
     "research": {
       "label": "Research & Discovery",
@@ -94,6 +94,20 @@
       "path": "skills/research/content-angle-ranker",
       "agent_compatible": true,
       "tools": [
+        "web_search"
+      ],
+      "author": "Affitor"
+    },
+    {
+      "name": "find-and-verify-affiliate-program",
+      "slug": "find-and-verify-affiliate-program",
+      "stage": "research",
+      "version": "1.0.0",
+      "description": "> Find affiliate programs in the OpenAffiliate registry, then confirm every term on the brand's own page and report each one with a verbatim quote and its source URL. Use this skill when the user wants affiliate terms they can rely on: before signing up, before publishing a review or comparison, when a listing looks outdated, or when two sources disagree. Also trigger for: \"verify this affiliate program\", \"is X's affiliate commission still 30%\", \"what's the cookie length for X\", \"check the affiliate terms\", \"does X have an affiliate program\", \"find a recurring program and confirm the terms\", \"is this commission rate real\", \"source for X's affiliate terms\", \"fact-check this affiliate program\", \"what does X pay affiliates\".",
+      "path": "skills/research/find-and-verify-affiliate-program",
+      "agent_compatible": true,
+      "tools": [
+        "web_fetch",
         "web_search"
       ],
       "author": "Affitor"
