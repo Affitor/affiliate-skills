@@ -27,6 +27,31 @@
         }
       ]
     },
+    "find-and-verify-affiliate-program": {
+      "tests": [
+        {
+          "id": "f1-001",
+          "name": "Known answer: verify a named program",
+          "input_prompt": "Verify the Postmark affiliate terms before I sign up",
+          "expected_patterns": ["postmarkapp.com", "20%", "60", "100", "Confirmed", "Quote"],
+          "pass_criteria": "Known answers checked 2026-10-12 on postmarkapp.com/lp/referral-partner-program: 20% commission, 12 months, 60-day cookie, $100 minimum payout. All four are reported, each marked Confirmed with a verbatim quote and a postmarkapp.com URL. No commission, cookie or payout number appears without a quote. The check date is shown."
+        },
+        {
+          "id": "f1-002",
+          "name": "Discovery then verification",
+          "input_prompt": "Find a recurring affiliate program for an email tool I can promote to newsletter writers, and make sure the terms are real",
+          "expected_patterns": ["openaffiliate.dev", "recurring", "Quote", "Source", "checked"],
+          "pass_criteria": "Candidates come from OpenAffiliate (MCP, API or .md page). At least one program is verified. Every term marked Confirmed or Differs has a verbatim quote and a URL on the brand's domain or a network page the brand links to (quote coverage 100%). Registry values shown without a quote are labelled unconfirmed. No unsourced numbers."
+        },
+        {
+          "id": "f1-003",
+          "name": "Unverified listing, no terms page",
+          "input_prompt": "What's OpenRouter's affiliate commission and cookie length?",
+          "expected_patterns": ["openrouter.ai", "checked"],
+          "pass_criteria": "The registry's unverified cookie and payout values are not stated as fact. Any term reported carries a verbatim quote from an openrouter.ai page. If no terms page is found, the output says no program was found and lists the URLs checked. Zero unsourced numbers."
+        }
+      ]
+    },
     "commission-calculator": {
       "tests": [
         {
