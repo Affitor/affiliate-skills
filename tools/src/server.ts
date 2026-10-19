@@ -85,7 +85,7 @@ async function handleRequest(req: Request): Promise<Response> {
     const params: SearchParams = {
       q: url.searchParams.get("q") || undefined,
       type: (url.searchParams.get("type") as SearchParams["type"]) || "affiliate_program",
-      sort: (url.searchParams.get("sort") as SearchParams["sort"]) || "trending",
+      sort: (url.searchParams.get("sort") as SearchParams["sort"]) || "relevance",
       limit: parseInt(url.searchParams.get("limit") || "10"),
       reward_type: url.searchParams.get("reward_type") || undefined,
       tags: url.searchParams.get("tags") || undefined,
@@ -119,7 +119,7 @@ async function handleRequest(req: Request): Promise<Response> {
 
   // Top programs
   if (path === "/top") {
-    const sort = (url.searchParams.get("sort") as SearchParams["sort"]) || "top";
+    const sort = (url.searchParams.get("sort") as SearchParams["sort"]) || "commission_desc";
     const limit = parseInt(url.searchParams.get("limit") || "10");
     const params: SearchParams = { sort, limit, type: "affiliate_program" };
 

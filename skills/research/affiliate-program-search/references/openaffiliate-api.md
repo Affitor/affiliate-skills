@@ -1,15 +1,18 @@
-> **DEPRECATED**: This file previously documented the list.affitor.com API, which has been retired.
-> The data source is now **openaffiliate.dev**. All references below have been updated accordingly.
-
 # openaffiliate.dev Data Access
 
 ## Overview
 
-openaffiliate.dev is a public, open API — no API key, no authentication, no rate limits, no free-tier restrictions.
+openaffiliate.dev is a public, open API — no API key, no authentication.
 
 Base URL: `https://openaffiliate.dev/api`
 
-## Method 1: API (preferred)
+## MCP (preferred)
+
+Connect to `https://openaffiliate.dev/mcp` and use `search_programs`, `get_program`
+and `list_categories`. The canonical workflow is
+[find-and-verify-affiliate-program](../../find-and-verify-affiliate-program/SKILL.md).
+
+## Method 1: REST API (fallback)
 
 ### GET /api/programs
 
@@ -18,7 +21,7 @@ Lists affiliate programs. Supports search and filtering via query params.
 Query params:
 ```
 q=search_term     Search name + description
-sort=relevance    Sort: relevance (default) | other supported sort values
+sort=relevance    Sort: relevance (default) | az | za | commission_desc | newest
 limit=30          Results per page
 ```
 
@@ -38,7 +41,7 @@ Response format:
       "logo": "https://...",
       "category": "ai",
       "commission": {
-        "type": "cps_recurring",
+        "type": "recurring",
         "rate": "30%",
         "currency": "USD",
         "duration": "12 months",
@@ -86,7 +89,7 @@ Returns the program object directly (same shape as a single item in `programs[]`
 | `url` | Product website |
 | `logo` | Logo image URL |
 | `category` | Category string |
-| `commission.type` | Commission type (cps_recurring, cps_one_time, cpl, etc.) |
+| `commission.type` | Commission type (recurring, one-time, tiered, hybrid) |
 | `commission.rate` | Commission rate (e.g., "30%") |
 | `commission.currency` | Currency code |
 | `commission.duration` | Duration (e.g., "12 months", "lifetime") |

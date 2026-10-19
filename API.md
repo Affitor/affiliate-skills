@@ -5,13 +5,13 @@ Public API for the Open Affiliate program directory.
 - **Base URL:** `https://openaffiliate.dev/api`
 - **Format:** JSON
 - **Auth:** None — fully public, no API key required
-- **Last updated:** 2026-06-13
+- **Last updated:** 2026-10-19
 
 ---
 
 ## Authentication
 
-None. The API is fully open — no account, no API key, no rate limits. All endpoints are accessible without any headers.
+None. The API is fully open — no account, no API key. All endpoints are accessible without any headers.
 
 ---
 
@@ -26,13 +26,13 @@ List and search published affiliate programs.
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | `q` | string | — | Full-text search on name and description |
-| `sort` | string | `relevance` | Sort order: `relevance`, `trending`, `new`, or `top` |
+| `sort` | string | `relevance` | Sort order: `relevance`, `az`, `za`, `commission_desc`, or `newest` |
 | `limit` | integer | `30` | Results per page |
 
-Example — search for AI tools sorted by top:
+Example — search for AI tools sorted by commission:
 
 ```
-GET https://openaffiliate.dev/api/programs?q=AI&sort=top&limit=10&utm_source=affiliate-skills
+GET https://openaffiliate.dev/api/programs?q=AI&sort=commission_desc&limit=10&utm_source=affiliate-skills
 ```
 
 #### Response
@@ -149,7 +149,7 @@ Returns `404` if no program is found with the given slug.
 **Search programs:**
 
 ```bash
-curl "https://openaffiliate.dev/api/programs?q=AI+video&sort=top&limit=10&utm_source=affiliate-skills"
+curl "https://openaffiliate.dev/api/programs?q=AI+video&sort=commission_desc&limit=10&utm_source=affiliate-skills"
 ```
 
 **Get a single program by slug:**
@@ -179,7 +179,7 @@ async function searchPrograms(query, options = {}) {
 }
 
 // Usage
-const result = await searchPrograms("AI video", { sort: "top", limit: 10 });
+const result = await searchPrograms("AI video", { sort: "commission_desc", limit: 10 });
 
 for (const program of result.programs) {
   console.log(`${program.name} — ${program.commission.rate} (${program.commission.type}), ${program.cookieDays}d cookie`);

@@ -1,7 +1,7 @@
 /**
  * openaffiliate.dev API client
  *
- * Public, open API — no key required, no rate tier. This client adapts the
+ * Public, open API — no key required. This client adapts the
  * openaffiliate.dev response shape (camelCase, nested `commission`, `programs[]`)
  * to the normalized snake_case `Program` shape the rest of affiliate-check uses,
  * so formatting and skills keep working unchanged.
@@ -48,7 +48,7 @@ export interface ProgramsResponse {
 export interface SearchParams {
   q?: string;
   type?: "affiliate_program" | "skill";
-  sort?: "trending" | "new" | "top";
+  sort?: "relevance" | "az" | "za" | "commission_desc" | "newest" | "trending" | "new" | "top";
   limit?: number;
   offset?: number;
   reward_type?: string;
@@ -175,7 +175,14 @@ export async function fetchPrograms(
 
   const url = new URL(`${API_BASE}/programs`);
   if (params.q) url.searchParams.set("q", params.q);
-  if (params.sort) url.searchParams.set("sort", params.sort);
+  if (params.sort) {
+    // Older CLI installs still use these names; never send them to OpenAffiliate.
+    const legacy = { top: "commission_desc", trending: "newest", new: "newest" };
+    const sort = Object.hasOwn(legacy, params.sort)
+      ? legacy[params.sort as keyof typeof legacy]
+      : params.sort;
+    url.searchParams.set("sort", sort);
+  }
   // When filtering client-side, pull a wider page so the filter has data to work on.
   const fetchLimit = hasClientFilter ? Math.max(limit ?? 10, 100) : limit;
   if (fetchLimit) url.searchParams.set("limit", String(fetchLimit));

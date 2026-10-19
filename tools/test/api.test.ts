@@ -17,6 +17,22 @@ afterEach(() => {
 });
 
 describe("openaffiliate.dev request bounds", () => {
+  for (const [input, expected] of [
+    ["top", "commission_desc"], ["trending", "newest"], ["new", "newest"],
+    ["relevance", "relevance"], ["az", "az"], ["za", "za"],
+    ["commission_desc", "commission_desc"], ["newest", "newest"],
+  ] as const) {
+    it(`sends canonical sort ${expected} for ${input}`, async () => {
+      let requested: URL | undefined;
+      globalThis.fetch = mock(async (url: string | URL | Request) => {
+        requested = new URL(String(url));
+        return Response.json({ programs: [], total: 0 });
+      }) as typeof fetch;
+      await fetchPrograms({ sort: input });
+      expect(requested?.searchParams.get("sort")).toBe(expected);
+    });
+  }
+
   it("uses a 10-second timeout for list and detail requests", async () => {
     const signal = new AbortController().signal;
     const timeout = mock(() => signal);

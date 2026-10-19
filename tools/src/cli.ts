@@ -6,7 +6,7 @@
  *
  * Usage:
  *   affiliate-check search <query>       Search programs
- *   affiliate-check top [--sort trending|new|top]  Top programs
+ *   affiliate-check top [--sort commission_desc|newest]  Top programs
  *   affiliate-check info <name>          Program details
  *   affiliate-check compare <a> <b> [c]  Compare programs
  *   affiliate-check status               Server status
@@ -110,8 +110,8 @@ function printHelp() {
     affiliate-check search --recurring          Filter by recurring commission
     affiliate-check search --tags ai,video      Filter by tags
     affiliate-check search --min-cookie 30      Filter by minimum cookie days
-    affiliate-check top                         Top programs by stars
-    affiliate-check top --sort trending         Top by trending
+    affiliate-check top                         Highest commission first
+    affiliate-check top --sort newest           Newest programs first
     affiliate-check info <name>                 Detailed info on a program
     affiliate-check compare <a> <b> [c...]      Side-by-side comparison
     affiliate-check status                      Server status + cache info

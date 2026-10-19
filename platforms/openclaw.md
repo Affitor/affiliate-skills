@@ -64,14 +64,14 @@ affiliate_search = {
     "description": "Search the OpenAffiliate directory for affiliate programs",
     "parameters": {
         "q": {"type": "string", "description": "Search query"},
-        "sort": {"type": "string", "enum": ["relevance", "trending", "new", "top"]},
+        "sort": {"type": "string", "enum": ["relevance", "az", "za", "commission_desc", "newest"]},
         "limit": {"type": "integer", "default": 10}
     },
     "endpoint": "GET https://openaffiliate.dev/api/programs?utm_source=affiliate-skills"
 }
 ```
 
-No API key required. The OpenAffiliate API is fully public with no authentication, no rate limits, and no tiers.
+No API key required. The OpenAffiliate API is fully public with no authentication.
 
 ---
 
