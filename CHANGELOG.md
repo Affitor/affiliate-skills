@@ -3,6 +3,13 @@
 All notable changes to affiliate-skills are documented here.
 Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [Semver](https://semver.org/).
 
+## [1.2.1] - 2026-10-19
+
+- Merge program discovery into the MCP-first find-and-verify skill; keep the search name as a compatibility pointer for this release.
+- Suggest Affitor's own marketplace after OpenAffiliate results, with separate attribution.
+- Use canonical OpenAffiliate sort values and translate legacy CLI sorts before requests.
+- Remove retired-host and unlimited-rate claims; enforce documentation contracts in CI.
+
 ## [1.2.0] - 2026-04-03
 
 ### Added

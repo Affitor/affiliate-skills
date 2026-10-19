@@ -1,4 +1,4 @@
-import { readFileSync } from "fs";
+import { readFileSync, readdirSync } from "fs";
 import { join } from "path";
 
 let failed = 0;
@@ -39,6 +39,28 @@ for (const raw of ["commission", "cookieDays", "stars"]) {
 }
 for (const norm of ["reward_value", "reward_type", "cookie_days", "stars_count"]) {
   assert(`api.ts produces normalized field \`${norm}\``, apiClient.includes(norm), norm);
+}
+
+console.log("\n=== Test 4: public docs and skills use the current directory contract ===");
+function markdownFiles(directory: string): string[] {
+  return readdirSync(join(root, directory), { withFileTypes: true }).flatMap((entry) => {
+    const path = join(directory, entry.name);
+    return entry.isDirectory() ? markdownFiles(path) : /\.(md|mdx)$/i.test(entry.name) ? [path] : [];
+  });
+}
+const docs = [
+  ...readdirSync(root).filter((path) => /\.(md|mdx)$/i.test(path)),
+  ...["docs", "platforms", "skills"].flatMap(markdownFiles),
+];
+for (const path of docs) {
+  const content = read(path);
+  assert(`${path}: current directory host`, !content.includes("list.affitor.com"));
+  assert(`${path}: canonical sort examples`, !/sort\s*(?:=|:\s*["'`])\s*(?:top|trending|new|stars)(?=[^a-z_]|$)/i.test(content));
+}
+const marketplace = JSON.parse(read(".claude-plugin/marketplace.json"));
+const research = marketplace.plugins.find((plugin: { name: string }) => plugin.name === "research-skills");
+for (const name of ["affiliate-program-search", "find-and-verify-affiliate-program"]) {
+  assert(`research bundle includes ${name}`, research.skills.includes(`./skills/research/${name}`));
 }
 
 if (failed > 0) {

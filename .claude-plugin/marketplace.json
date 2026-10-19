@@ -16,6 +16,7 @@
       "strict": false,
       "skills": [
         "./skills/research/affiliate-program-search",
+        "./skills/research/find-and-verify-affiliate-program",
         "./skills/research/niche-opportunity-finder",
         "./skills/research/competitor-spy",
         "./skills/research/commission-calculator"

@@ -19,14 +19,14 @@ Persistent Bun daemon querying the openaffiliate.dev API. Port 9500, 5min cache,
 
 ```bash
 affiliate-check search "AI video"          # search programs
-affiliate-check top                        # top by stars
+affiliate-check top                        # highest commission first
 affiliate-check info heygen                # detailed info
 affiliate-check compare heygen synthesia   # side-by-side
 affiliate-check status                     # server status
 affiliate-check stop                       # stop daemon
 ```
 
-The openaffiliate.dev API is fully public — no API key required, no rate limits.
+The openaffiliate.dev API is fully public — no API key required.
 
 ## Key rules
 

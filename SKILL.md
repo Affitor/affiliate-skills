@@ -96,7 +96,7 @@ affiliate-check help                              Full help
 
 ## Environment
 
-No environment variables required. The openaffiliate.dev API is fully public — no API key, no auth, no rate limits.
+No environment variables required. The openaffiliate.dev API is fully public — no API key, no auth.
 
 ## Architecture
 

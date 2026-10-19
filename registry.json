@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-10-13T04:03:18.769Z",
+  "generated_at": "2026-10-19T19:22:09.109Z",
   "stages": {
     "research": {
       "label": "Research & Discovery",
@@ -49,13 +49,10 @@
       "slug": "affiliate-program-search",
       "stage": "research",
       "version": "1.0.0",
-      "description": "> Research and evaluate affiliate programs to find the best ones to promote. Use this skill when the user asks anything about finding affiliate programs, comparing commission rates, evaluating affiliate opportunities, searching for products to promote, picking a niche, or mentions openaffiliate.dev. Also trigger for: \"which SaaS should I promote\", \"best affiliate programs for X\", \"high commission programs\", \"recurring commission affiliate\", \"compare these affiliate programs\", \"is X affiliate program worth it\", \"find me something to promote\", \"what pays the most\", \"affiliate programs with long cookie duration\".",
+      "description": "Compatibility pointer for finding and comparing affiliate programs. Use find-and-verify-affiliate-program for the current MCP-first discovery and verification workflow.",
       "path": "skills/research/affiliate-program-search",
       "agent_compatible": true,
-      "tools": [
-        "web_fetch",
-        "web_search"
-      ],
+      "tools": [],
       "author": "Affitor"
     },
     {
