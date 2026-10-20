@@ -8,6 +8,7 @@ version: "1.0.0"
 tags: ["affiliate-marketing"]
 compatibility: "Claude Code, ChatGPT, Gemini CLI, Cursor, Windsurf, OpenClaw, any AI agent"
 metadata:
+  internal: true
   author: your-github-handle
   version: "1.0"
   stage: SX-StageName
