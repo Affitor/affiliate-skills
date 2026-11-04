@@ -112,6 +112,31 @@ tiktok:
   api_key: "YOUR_APIFY_TOKEN"
   actor_id: "clockworks~tiktok-scraper"
   # Runs actor with input: { searchQueries: [keyword], resultsPerPage: 50 }
+
+# LurkAPI (custom provider: one key also covers YouTube, X and Reddit)
+tiktok:
+  provider: "custom"
+  base_url: "https://api.lurkapi.com"
+  api_key: "YOUR_LURKAPI_KEY"
+  headers:
+    x-api-key: "{api_key}"
+  search:
+    endpoint: "/v1/tiktok/search/keyword"   # no limit or sort params; next page: &cursor={cursor}
+    method: "GET"
+    params:
+      query_param: "query"
+  response_mapping:
+    items_path: "videos"
+    title: "desc"
+    url: "url"
+    creator: "author.uniqueId"
+    views: "stats.playCount"
+    likes: "stats.diggCount"
+    comments: "stats.commentCount"
+    shares: "stats.shareCount"
+    published_date: "createTime"            # Unix seconds
+    duration: "video.duration"              # seconds
+    thumbnail: "video.cover"
 ```
 
 **Data available per video:**
@@ -200,6 +225,7 @@ reddit:
 | **Apify** | All (via actors) | Deep scraping with full data | $5 free credit/mo |
 | **SocialBlade API** | YT, TT, X, IG | Creator/channel analytics | Limited free |
 | **Phantom Buster** | All | Automated data extraction | 14-day trial |
+| **LurkAPI** | TT, YT, X, Reddit, IG + 11 more | One key for engagement stats, transcripts and ad libraries | 100 credits at signup, then a daily top-up to 25 |
 
 ---
 
