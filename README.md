@@ -243,6 +243,7 @@ Find programs, scout trending content, analyze traffic, rank angles.
 | [trending-content-scout](skills/research/trending-content-scout/) | 🆕 Scan YouTube/TikTok/X/Reddit for top content by engagement |
 | [content-angle-ranker](skills/research/content-angle-ranker/) | 🆕 Rank content angles by data — competition, engagement, platform fit |
 | [traffic-analyzer](skills/research/traffic-analyzer/) | 🆕 Analyze website traffic, rank, sources. Evaluate advertiser health |
+| [tiktok-template-scout](skills/research/tiktok-template-scout/) | 🆕 Find trending CapCut/TikTok templates by real usage data, fit them to your niche |
 
 ### S2: Content Creation (7 skills)
 Research-backed, data-driven content with visual assets.
